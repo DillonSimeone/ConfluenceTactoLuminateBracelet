@@ -1,0 +1,56 @@
+* {
+  overflow: hidden;
+}
+
+header{
+  background-color: rgba(0, 0, 0, 0.664);
+  position: absolute;
+  top: 5%;
+  left: -20px;
+  padding-left: 20px;
+  padding-right: 200px;
+  border-radius: 1em;
+}
+
+h1 {
+  font-size: 10vw;
+  margin: 0;
+  text-align: center;
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, rgba(244, 216, 244, 1) 0%, rgba(226, 216, 241, 1) 50%, rgba(106, 76, 120, 1) 51%, rgba(195, 136, 188, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  border-bottom: 10em purple;
+  background-image: linear-gradient(to right, #020725 0%, black 100%);
+}
+
+div{
+  background-color: rgba(0, 0, 0, 0.664);
+}
+
+[data-js="glitch-image"] {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  
+  border-bottom: 1vh solid purple;
+}
+
+[data-js="glitch-image"] canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 1vh solid purple;
+}

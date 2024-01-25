@@ -2,17 +2,31 @@
 This sends out midi notes via bluetooth (BLE-MIDI). The sensors on the ring and MPU-6050 affects what notes are sent, velocity, etc.
 
 # Libraries
-MPU sensor data + calibration
-https://github.com/LiquidCGS/FastIMU
+<h4>MPU sensor data + calibration</h4>
+<blockquote>
+	https://github.com/LiquidCGS/FastIMU
+	<p>Made it really easy to just plug those MPU sensors in and be done with it!</p>
+</blockquote>
 
-Audio processing
-https://github.com/sheaivey/ESP32-AudioInI2S
+<h4>Audio processing</h4>
+<blockquote>
+	https://github.com/sheaivey/ESP32-AudioInI2S
+	<p>Does magic on the audio to get frequency data, volume level, etc.</p>
+</blockquote>
 
-Arduino BLE-MIDI
-https://github.com/lathoub/Arduino-BLE-MIDI 
+<h4>Arduino BLE-MIDI</h4>
+<blockquote>
+	https://github.com/lathoub/Arduino-BLE-MIDI 
+	<p>Bluetooth to MIDI</p>
+</blockquote>
 
-Sparkfun Haptic Driver
-https://github.com/sparkfun/SparkFun_Qwiic_Haptic_Driver_DA7280_Arduino_Library
+<h4>Sparkfun Haptic Driver</h4>
+<blockquote>
+	https://github.com/sparkfun/SparkFun_Qwiic_Haptic_Driver_DA7280_Arduino_Library
+	<p>Haptics</p>
+</blockquote>
+
+
 
 # Hardwares
 <div>

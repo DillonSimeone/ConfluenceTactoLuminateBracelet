@@ -64,7 +64,7 @@
 <p>
     Two different styles of bracelets are being built as custom muscial instruments, one with pixelblaze and another with ESP32. The purpose of those bracelets are to control nearly haptics and LED systems via sensors detecting the wearer's gestures and movements. 
 </p>
-<h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Arduino%20Code/FrequencyReactiveTacile">ESP32 Bracelet</a></h3>
+<h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Arduino%20Code/FrequencyReactiveTacile">ESP32 Bracelet (GestoLumina)</a></h3>
 <p>A low cost but extremely powerful approach, very beginner-friendly due to being programmed in arduino. Require more elbow grease to get up and running similar to the pixelblaze. However, the bluetooth in nearly all ESP32s makes them very easy to program as bluetooth musical instruments!</p>
 
 <h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Pixelblaze%20Code">Pixelblaze Bracelet</a></h3>
@@ -100,7 +100,89 @@
 </ul>
 
 # Pictures
-<h3>TO BE ADDED</h3>
+<h3>Pixelblaze</h3>
+<table>
+    <tr>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingLEDsPixelBlaze.jpg" style="width: 50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingLEDsPixelBlaze2.jpg" style="width: 50%;">
+        </td>
+        <td align="center">
+           <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingLEDsPixelblaze3.jpg" style="width: 50%;">
+        </td>
+    </tr>
+    <tr>
+        <td align="center"> 
+            <p>Cutting up and soldering together LED strips so they'll fit on the living hinge bracelet. </p>
+        </td>
+        <td align="center">
+            <p>The pixelblaze bracelet lives!</p>
+        </td>
+        <td align="center">
+            <p>Making a new bracelet and wiring the leds differently. Previously, they was wired in parallel.</p>
+        </td>
+    </tr>
+</table>
+
+<h3>ESP32 (GestoLumina)</h3>
+<table>
+    <tr>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/reilizingSensorsCanFitInMyRings.jpg" style="width: 50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingRingFits.jpg" style="width: 50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingSensorsOnRings2.jpg" style="width: 50%;">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>The moment when it was realized that most of the sensors would fit neatly into wooden rings made by a laser cutter.</p>
+        </td>
+        <td align="center">
+            <p>Testing which ring size seems to fit on people's fingertips the best. 18mm~ turned out to be the ideal size for those ring designs.</p>
+        </td>
+        <td align="center">
+            <p>Assembling sensors on the rings, it went by pretty nicely.</p>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingFit.jpg" style="width: 50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingESP32Display.png" style="width: 50%;">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>It fits!</p>
+        </td>
+        <td align="center"> 
+            <p>Displaying all sensor readouts on the screen for easier development and troubleshooting.</p>
+        </td>
+    </tr>
+</table>
+
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
+
+    
+
 
         
     

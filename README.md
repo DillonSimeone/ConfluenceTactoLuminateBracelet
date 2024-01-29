@@ -69,7 +69,13 @@
 
 <h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Pixelblaze%20Code">Pixelblaze Bracelet</a></h3>
 <p>The tool of choice for visualizing sounds with leds. This was the first quick rough prototype, since it was easy to order the sensor extension which comes with all sensors required for the project. Custom firmwork, somewhat accessiable due to its programming language being similar to javascript. No support for TFT displays, arduino libraries, etc. Not as straightfoward to set up as a musical instrument.</p>
-                    
+
+# Misc
+<h3>Prezi Show</h3>
+<p>Confluence built this prezi show for workshops, to quickly give people a crash course into how CymaSpace handles sounds to lights and music theory.</p>
+<h3 align="center"><a href="https://prezi.com/view/BKSwKoRpNLLlaCZ8I6HS/">View Prezi</a></h3>
+
+
 # Videos
 <h3>Misc</h3>
 <ul>
@@ -92,6 +98,9 @@
     <li><a href="https://www.youtube.com/shorts/bEWE7uyCt_Y ">Testing haptics</a></li>
     <li><a href="https://www.youtube.com/shorts/fWRVd8oUweI">Inching toward final form... Too bulky! The pins coming out of the ESP32 board are evil!</a></li>
 </ul>
+
+# Pictures
+<h3>TO BE ADDED</h3>
 
         
     

@@ -179,6 +179,9 @@
         <td align="center">
             <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/showingHowFingerTipSensorsConnectsToESP32.jpg" style="width:50%;">
         </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/idealGlove.jpg" style="width:50%">
+        </td>
     </tr>
     <tr>
         <td align="center">
@@ -186,6 +189,9 @@
         </td>
         <td align="center">
             <p>Added a L298N H-bridge to control the haptics with, much better!</p>
+        </td>
+        <td align="center">
+            <p>This half glove is what the entire system will be sewn to eventually!</p>
         </td>
     </tr>
 </table>

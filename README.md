@@ -1,4 +1,6 @@
-# Confluence: Gesture Interpreted Light, Sound and Haptics. Towards a Framework for Universal Music Design.
+<h1 align="center">Gestolumina</h1>
+<h4 align="center">Gesture Interpreted Light, Sound and Haptics. Towards a Framework for Universal Music Design</h4>
+
 <p align="center">
     <img src="https://github.com/DillonSimeone/ConfluenceTactoLuminateBracelet/blob/main/media/Gestolumina/IMG_20240123_064552.jpg?raw=true" style="width: 25%;">
 </p>
@@ -57,6 +59,16 @@
     </tr>
     </tbody>
 </table>
+
+# Intro
+<p>
+    Two different styles of bracelets are being built as custom muscial instruments, one with pixelblaze and another with ESP32. The purpose of those bracelets are to control nearly haptics and LED systems via sensors detecting the wearer's gestures and movements. 
+</p>
+<h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Arduino%20Code/FrequencyReactiveTacile">ESP32 Bracelet</a></h3>
+<p>A low cost but extremely powerful approach, very beginner-friendly due to being programmed in arduino. Require more elbow grease to get up and running similar to the pixelblaze. However, the bluetooth in nearly all ESP32s makes them very easy to program as bluetooth musical instruments!</p>
+
+<h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Pixelblaze%20Code">Pixelblaze Bracelet</a></h3>
+<p>The tool of choice for visualizing sounds with leds. This was the first quick rough prototype, since it was easy to order the sensor extension which comes with all sensors required for the project. Custom firmwork, somewhat accessiable due to its programming language being similar to javascript. No support for TFT displays, arduino libraries, etc. Not as straightfoward to set up as a musical instrument.</p>
                     
 # Videos
 <h3>Misc</h3>

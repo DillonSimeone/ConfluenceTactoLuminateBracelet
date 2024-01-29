@@ -3,13 +3,60 @@
     <img src="https://github.com/DillonSimeone/ConfluenceTactoLuminateBracelet/blob/main/media/Gestolumina/IMG_20240123_064552.jpg?raw=true" style="width: 25%;">
 </p>
 <h1 align="center">Team Members</h1>
-
-|Shawn Trail| Nate Hergert | Myles De Bastion |Doga Cavdir | Dillon Simeone | 
-|-----------|--------------|------------------| ---------- | ---------------|
-| CymaSpace| CymaSpace| CymaSpace| Medialogy | CymaSpace 
-| www.cymaspace.org| www.cymaspace.org | www.cymaspace.org | Aalborg University | www.cymaspace.org
-| Portland, Oregon | Portland, Oregon | Portland, Oregon  | Copnenhagen, Denmark  | Portland, Oregon  |
-| shawntrail@gmail.com | nate@cymaspace.org | [myles@cymaspace.org](mailto:myles@cymaspace.org) | Idoga.cadvir@gmail.com | dillonsimeone@gmail.com|
+<table align="center">
+    <thead>
+        <th>Shawn Trail</th>
+        <th>Nate Hergert</th>
+        <th>Myles De Bastion</th>
+    </thead>
+    <tbody>
+        <tr>   
+            <td>CymaSpace</td>
+            <td>CymaSpace</td>
+            <td>CymaSpace</td>
+        </tr>
+        <tr>
+            <td>www.cymaspace.org</td>
+            <td>www.cymaspace.org</td>
+            <td>www.cymaspace.org</td>
+        </tr>
+        <tr>
+            <td>Portland, Oregon</td>
+            <td>Portland, Oregon</td>
+            <td>Portland, Oregon</td>
+        </tr>
+        <tr>
+            <td>shawntrail@gmail.com</td>
+            <td>nate@cymaspace.org</td>
+            <td>myles@cymaspace.org</td>
+        </tr>
+    </tbody>
+    
+</table>
+<table align="center">
+    <thead>
+        <th>Dillon Simeone</th>
+        <th>Doga Cavdir</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>CymaSpace</td>
+        <td>Medialogy</td>
+    </tr>
+    <tr>
+        <td>www.cymaspace.org</td>
+        <td>Aalborg University</td>
+    </tr>
+    <tr>
+        <td>Portland, Oregon</td>
+        <td>Copnenhagen, Denmark</td>
+    </tr>
+    <tr>
+        <td>dillonsimeone@gmail.com</td>
+        <td>Idoga.cadvir@gmail.com</td>
+    </tr>
+    </tbody>
+</table>
                     
 # Videos
 <h3>Misc</h3>

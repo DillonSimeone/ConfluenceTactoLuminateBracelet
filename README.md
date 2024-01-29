@@ -150,14 +150,15 @@
             <p>Assembling sensors on the rings, it went by pretty nicely.</p>
         </td>
     </tr>
-</table>
-<table>
     <tr>
         <td align="center">
             <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingFit.jpg" style="width: 50%;">
         </td>
         <td align="center">
             <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingESP32Display.png" style="width: 50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingMics.jpg" style="width: 50%">
         </td>
     </tr>
     <tr>
@@ -167,8 +168,28 @@
         <td align="center"> 
             <p>Displaying all sensor readouts on the screen for easier development and troubleshooting.</p>
         </td>
+        <td align="center"> 
+            We was careful to laser the box in a way where sensors and the like can be added or removed without desoldering wires, breaking the box, etc.
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingSparkFunHaptics.jpg" style="width:50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/showingHowFingerTipSensorsConnectsToESP32.jpg" style="width:50%;">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>Testing the sparkfun haptic driver, it turned out to be really weak. Barely noticeable at max power. That's 3v haptics for you!</p>
+        </td>
+        <td align="center">
+            <p>Added a L298N H-bridge to control the haptics with, much better!</p>
+        </td>
     </tr>
 </table>
+
 
     
     

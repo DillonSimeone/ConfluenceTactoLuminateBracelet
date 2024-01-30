@@ -1,30 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
 <head>
-	<title>Dillon Simeone</title>
-	<link href="./Styles/style.css" rel="stylesheet">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Confluence</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<link rel="icon" type="image/x-icon" href="/images/favicon_io/favicon-32x32.png">
+	<style>
+		/*
+			Note to self, make better mobile/table supports for this.
+		*/
+
+		@media screen and (max-width: 1280px){
+			[data-js="glitch-image"]{
+				display: none;
+			}
+		}
+		[data-js="glitch-image"] {
+			position: fixed;
+			top: 5%;
+			left: 5%;
+			z-index: 100000;
+			width: 150px;
+			height: 150px;
+		}
+
+		[data-js="glitch-image"] img {
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+		}
+
+		[data-js="glitch-image"] canvas {
+
+			position: relative;
+			top: -160px;
+			width: 100%;
+			height: 100%;
+			border-radius: 100px;
+		}
+	</style>
 </head>
 
-<body>
-	<header >
-		<h1>Confluence</h1>
-	</header>
-
+<body class="is-preload">
 	<div data-js="glitch-image">
-		<img src="./media/faf265b71c2ce64b2864f083c454ca79.jpg">
+		<img src="./images/logo_v24.png" id="glitch">
+	</div>
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">Welcome</a></li>
+					<li><a href="#one">Who we are</a></li>
+					<li><a href="#two">What we do</a></li>
+					<li><a href="#three">Get in touch</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Confluence Recording Company</h1>
+				<!--
+				<p>
+					Welcome to Confluence Recording Company, where the river of creativity meets the confluence of
+					technology and inclusivity. Founded by Nate Hergert, a Deaf DJ and music producer, alongside Shawn
+					Trail, PhD, a percussionist, music producer, and computer scientist, Confluence is not just a
+					recording studio; it's a groundbreaking hub for state-of-the-art recording and production services
+					and visionary audio/multi-media research and development.
+				</p>
+				-->
+				<p>
+					Our name, "Confluence," draws inspiration from both geography, particularly the Sandy and Columbia
+					Rivers, and the intersection of technology in the realms of sound, visuals, and touch. At
+					Confluence, we embrace a diverse range of abilities, catering to individuals across the spectrum,
+					including those who are hearing-able, Deaf, Hard-of-Hearing, Blind, Autistic, and more.
+				</p>
+				<p>
+					In a pioneering move, Confluence stands as one of the world's first recording studios founded by a
+					Deaf Music Producer. We take pride in pushing boundaries, creating an environment where innovation
+					thrives, and where sound is not just heard but felt on a profound level.
+				</p>
+				<ul class="actions">
+					<li><a href="#one" class="button scrolly">Learn more</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- One -->
+		<section id="one" class="wrapper style2 spotlights">
+			<section>
+				<a href="#" class="image"><img src="./images/teamMembers/FOUNDERS.jpeg" alt=""
+						data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Founders</h2>
+						<p>Meet Nate Hergert, the Deaf DJ and Music Producer pushing boundaries, and Shawn Trail, PhD,
+							the Percussionist, Audio Engineer, and Computer Scientist redefining the music landscape.
+							Together, they lead Confluence, where passion meets innovation. </p>
+						<ul class="actions">
+							<li><a href="founders.html" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<a href="#" class="image"><img src="images/Gestolumina/Gesloumina.jpg" alt=""
+						data-position="top center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Universal Music Design</h2>
+						<p>
+							Welcome to Universal Music Design (UMD), where our mission is clear: to enhance the
+							accessibility of dance and music for the Deaf and Hard of Hearing community. We achieve this
+							by employing cutting-edge Universal Design principles and haptic vibration technology.
+							Picture a dance floor and bodysuits meticulously designed to transcend the auditory
+							experience, translating music into a palpable, physical sensation.
+						</p>
+						<ul class="actions">
+							<li><a href="./universalMusicDesign.html" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<a href="#" class="image"><img src="images/teamMembers/teamMembers.jpg" alt=""
+						data-position="25% 25%" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Research Team: Harmonizing Innovation in Music Accessibility</h2>
+						<p>
+							Embark on a journey with the Confluence research team, a collective of passionate individuals committed to reshaping the landscape of music accessibility:
+						</p>
+						<ul class="actions">
+							<li><a href="./research.html" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<!-- Two -->
+		<section id="two" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>What We Do: Pioneering Accessibility in Music and Beyond</h2>
+				<p>Dive into the heart of Confluence's endeavors, where creativity and technology converge to redefine the world of sound:</p>
+				<div class="features">
+					<section>
+						<span class="icon solid major fa-code"></span>
+						<h3>Innovative Music Accessibility Solutions</h3>
+						<p>Revolutionizing the way music is experienced, we develop cutting-edge solutions using Universal Design and haptic vibration technology, ensuring that music is not just heard but felt.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-lock"></span>
+						<h3>Designing Wearables for Inclusive Entertainment</h3>
+						<p>Crafting user-centric wearables and envisioning complete bodysuits, we strive to create a seamless integration between technology and the user experience, enhancing accessibility in the realm of entertainment.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-cog"></span>
+						<h3>Groundbreaking Research at the Intersection of Arts and Technology</h3>
+						<p>Our team, comprised of experts in percussionist artistry, music production, and computer science, engages in groundbreaking research to push the forefront of innovation in music accessibility.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-desktop"></span>
+						<h3>Cultural Event Accessibility Advocacy</h3>
+						<p>Collaborating with Cymaspace, we advocate for and contribute to making cultural events universally accessible to the Deaf and Hard of Hearing community through technology, education, and outreach.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-link"></span>
+						<h3>Empowering Inclusivity Through Universal Design</h3>
+						<p>We champion Universal Design principles to break down barriers, ensuring that our projects are inclusive for individuals with diverse abilities, from the Deaf to the Hard of Hearing and beyond.</p>
+					</section>
+					<section>
+						<span class="icon major fa-gem"></span>
+						<h3>Interactive Installations and Immersive Experiences</h3>
+						<p>From visually compelling interactive systems to immersive experiences, we explore the intersection of body movement, expression, and technology, creating a sensory-rich environment for all.</p>
+					</section>
+				</div>
+				<!--
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Learn more</a></li>
+				</ul>
+				-->
+			</div>
+		</section>
+
+		<!-- Three -->
+		<section id="three" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Get in Touch: Let's Create, Collaborate, and Converge</h2>
+				<p>
+
+					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to Confluence and be a part of the creative confluence!</p>
+				<div class="split style1">
+					<section>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field half">
+									<label for="email">Email</label>
+									<input type="text" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="5"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><a href="" class="button submit">Send Message</a></li>
+							</ul>
+						</form>
+					</section>
+					<section>
+						<ul class="contact">
+							<li>
+								<h3>Address</h3>
+								<span>261 E Historic Columbia River Hwy, <br />
+									Troutdale, OR 97060<br />
+									USA</span>
+							</li>
+							<li>
+								<h3>Email</h3>
+								<a href="mailto:confluencerecording@gmail.com">confluencerecording@gmail.com</a>
+							</li>
+							<!--
+								<li>
+									<h3>Phone</h3>
+									<span>(000) 000-0000</span>
+								</li>
+							-->
+							
+							<li>
+								<h3>Social</h3>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span
+												class="label">Twitter</span></a></li>
+									<li><a href="https://www.facebook.com/confluencerecordingco" class="icon brands fa-facebook-f"><span
+												class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
+									</li>
+									<li><a href="#" class="icon brands fa-instagram"><span
+												class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-linkedin-in"><span
+												class="label">LinkedIn</span></a></li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</section>
+
 	</div>
 
-	<div>
-		Words words words
-	</div>
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Confluence. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
 
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 	<script>
 		//Code from: https://codepen.io/okawa-h/pen/bygrEr
 		(function (window) {
-
 			'use strict';
 
 			let _canvas, _context;
@@ -150,7 +415,7 @@
 				_context.clearRect(0, 0, width, height);
 				_context.drawImage(_imageData, 0, 0, _image.width, _image.height);
 
-				if (.5 < Math.random()) {
+				if (0.99 < Math.random()) {
 					getRandomValue(effectList)(_context, width, height);
 				}
 

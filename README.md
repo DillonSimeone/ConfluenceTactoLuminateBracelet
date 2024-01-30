@@ -104,13 +104,13 @@
 <table>
     <tr>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingLEDsPixelBlaze.jpg" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/assemblingLEDsPixelBlaze.jpg" style="width: 50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingLEDsPixelBlaze2.jpg" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/assemblingLEDsPixelBlaze2.jpg" style="width: 50%;">
         </td>
         <td align="center">
-           <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingLEDsPixelblaze3.jpg" style="width: 50%;">
+           <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/assemblingLEDsPixelblaze3.jpg" style="width: 50%;">
         </td>
     </tr>
     <tr>
@@ -130,13 +130,13 @@
 <table>
     <tr>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/reilizingSensorsCanFitInMyRings.jpg" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/reilizingSensorsCanFitInMyRings.jpg" style="width: 50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingRingFits.jpg" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/testingRingFits.jpg" style="width: 50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/assemblingSensorsOnRings2.jpg" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/assemblingSensorsOnRings2.jpg" style="width: 50%;">
         </td>
     </tr>
     <tr>
@@ -152,13 +152,13 @@
     </tr>
     <tr>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingFit.jpg" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/testingFit.jpg" style="width: 50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingESP32Display.png" style="width: 50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/testingESP32Display.png" style="width: 50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingMics.jpg" style="width: 50%">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/testingMics.jpg" style="width: 50%">
         </td>
     </tr>
     <tr>
@@ -174,13 +174,13 @@
     </tr>
     <tr>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/testingSparkFunHaptics.jpg" style="width:50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/testingSparkFunHaptics.jpg" style="width:50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/showingHowFingerTipSensorsConnectsToESP32.jpg" style="width:50%;">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/showingHowFingerTipSensorsConnectsToESP32.jpg" style="width:50%;">
         </td>
         <td align="center">
-            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/idealGlove.jpg" style="width:50%">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/idealGlove.jpg" style="width:50%">
         </td>
     </tr>
     <tr>

@@ -2,7 +2,7 @@
 <h4 align="center">Gesture Interpreted Light, Sound and Haptics. Towards a Framework for Universal Music Design</h4>
 
 <p align="center">
-    <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/media/Gestolumina/Gesloumina.jpg" style="width: 25%;">
+    <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/Gesloumina.jpg" style="width: 25%;">
 </p>
 <h1 align="center">Team Members</h1>
 <table align="center">

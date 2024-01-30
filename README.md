@@ -7,7 +7,7 @@
 <h1 align="center">Team Members</h1>
 <table align="center">
     <thead>
-        <th>Shawn Trail</th>
+        <th>Shawn Trail, PhD</th>
         <th>Nate Hergert</th>
         <th>Myles De Bastion</th>
     </thead>
@@ -38,7 +38,7 @@
 <table align="center">
     <thead>
         <th>Dillon Simeone</th>
-        <th>Doga Cavdir</th>
+        <th>Doga Cavdir, PhD</th>
     </thead>
     <tbody>
     <tr>

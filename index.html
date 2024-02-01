@@ -11,59 +11,112 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	<link rel="icon" type="image/x-icon" href="/images/favicon_io/favicon-32x32.png">
 	<style>
 		/*
 			Note to self, make better mobile/table supports for this.
 		*/
 
-		@media screen and (max-width: 1280px){
-			[data-js="glitch-image"]{
+		@media screen and (max-width: 1280px) {
+			[data-js="glitch-image"] {
 				display: none;
 			}
+
+			#sidebar .inner div {
+				display: none !important; 
+			}
 		}
+
 		[data-js="glitch-image"] {
-			position: fixed;
-			top: 5%;
-			left: 5%;
-			z-index: 100000;
-			width: 150px;
-			height: 150px;
+			position: relative;
+			top: -35px;
+			left: -25px
 		}
 
 		[data-js="glitch-image"] img {
-			width: 100%;
-			height: 100%;
-			z-index: 100;
+			position:absolute;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
 		}
 
 		[data-js="glitch-image"] canvas {
-
-			position: relative;
-			top: -160px;
-			width: 100%;
-			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
 			border-radius: 100px;
 		}
+
+		.spotlights section .news, .spotlights section .events {
+			background-size: 25% 25%;
+			animation: slide 30s infinite linear;
+		}
+
+		@keyframes slide {
+			0% {
+				background-position: left;
+			}
+			100% {
+				background-position: right;
+			}
+		}
+
+		#sidebar .inner div{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			font-size: 0.75rem;
+			margin-bottom: 0.5rem;
+		}
+
+		#sidebar .inner div img{
+			width: 35%;
+			margin: auto;
+		}
+
+		#sidebar .inner div a{
+			border:none;
+		}
+
 	</style>
 </head>
 
 <body class="is-preload">
-	<div data-js="glitch-image">
-		<img src="./images/logo_v24.png" id="glitch">
-	</div>
+	
 	<!-- Sidebar -->
 	<section id="sidebar">
+		<div data-js="glitch-image">
+			<img src="./images/logo_v24.png" id="glitch">
+		</div>
 		<div class="inner">
 			<nav>
 				<ul>
 					<li><a href="#intro">Welcome</a></li>
 					<li><a href="#one">Who we are</a></li>
-					<li><a href="#two">What we do</a></li>
-					<li><a href="#three">Get in touch</a></li>
+					<li><a href="#two">News/Events</a></li>
+					<li><a href="#three">What we do</a></li>
+					<li><a href="#four">Get in touch</a></li>
 				</ul>
 			</nav>
+			<div>
+				Confluence funded by Creative Heights
+				<a href="https://oregoncf.org/grants-and-scholarships/grants/creative-heights/">
+					<img src="./images/logos/OCF-bug-Horizontal-White-Type.svg">
+				</a>
+			</div>
+			<div>
+				Universal Music Design sponsored by
+				<a href="https://www.cymaspace.org/">
+					<img src="./images/logos/Transparent Cymaspace Logo 1024x403px.png">
+				</a>
+				
+			</div>
 		</div>
 	</section>
 
@@ -143,7 +196,8 @@
 					<div class="inner">
 						<h2>Research Team: Harmonizing Innovation in Music Accessibility</h2>
 						<p>
-							Embark on a journey with the Confluence research team, a collective of passionate individuals committed to reshaping the landscape of music accessibility:
+							Embark on a journey with the Confluence research team, a collective of passionate
+							individuals committed to reshaping the landscape of music accessibility:
 						</p>
 						<ul class="actions">
 							<li><a href="./research.html" class="button">Learn more</a></li>
@@ -151,43 +205,97 @@
 					</div>
 				</div>
 			</section>
+
+			<section id="two" class="wrapper style2 spotlights">
+				<a href="#" class="image events"><img src="./images/placeHolder/event_2558944.png" alt=""
+						data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Latest News: Unveiling the Sonic Tapestry</h2>
+						<p>
+							Stay tuned for the latest updates from Confluence! Our news section is where you'll discover
+							the freshest insights into our groundbreaking projects, collaborations, and the
+							ever-evolving world of accessible music experiences. From studio innovations to community
+							initiatives, immerse yourself in the dynamic tapestry of Confluence's journey. Check back
+							regularly for the latest news that resonates with innovation and inclusivity in the realm of
+							sound.
+						</p>
+						<ul class="actions">
+							<li><a href="news.html" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<a href="#" class="image news"><img src="./images/placeHolder/news_1335912.png" alt=""
+						data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Upcoming Events: Join the Sonic Odyssey</h2>
+						<p>
+							Explore the upcoming events section to embark on a sonic odyssey with Confluence. Whether
+							it's studio showcases, collaborative ventures, or community engagements, this is your portal
+							to stay informed. Mark your calendar and be part of events that celebrate the convergence of
+							creativity, technology, and inclusivity in the world of sound. Don't miss a beat – join us
+							for a symphony of experiences!
+						</p>
+						<ul class="actions">
+							<li><a href="news.html" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
 		</section>
 
-		<!-- Two -->
-		<section id="two" class="wrapper style3 fade-up">
+		<!-- three -->
+		<section id="three" class="wrapper style3 fade-up">
 			<div class="inner">
 				<h2>What We Do: Pioneering Accessibility in Music and Beyond</h2>
-				<p>Dive into the heart of Confluence's endeavors, where creativity and technology converge to redefine the world of sound:</p>
+				<p>Dive into the heart of Confluence's endeavors, where creativity and technology converge to redefine
+					the world of sound:</p>
 				<div class="features">
 					<section>
 						<span class="icon solid major fa-code"></span>
 						<h3>Innovative Music Accessibility Solutions</h3>
-						<p>Revolutionizing the way music is experienced, we develop cutting-edge solutions using Universal Design and haptic vibration technology, ensuring that music is not just heard but felt.</p>
+						<p>Revolutionizing the way music is experienced, we develop cutting-edge solutions using
+							Universal Design and haptic vibration technology, ensuring that music is not just heard but
+							felt.</p>
 					</section>
 					<section>
 						<span class="icon solid major fa-lock"></span>
 						<h3>Designing Wearables for Inclusive Entertainment</h3>
-						<p>Crafting user-centric wearables and envisioning complete bodysuits, we strive to create a seamless integration between technology and the user experience, enhancing accessibility in the realm of entertainment.</p>
+						<p>Crafting user-centric wearables and envisioning complete bodysuits, we strive to create a
+							seamless integration between technology and the user experience, enhancing accessibility in
+							the realm of entertainment.</p>
 					</section>
 					<section>
 						<span class="icon solid major fa-cog"></span>
 						<h3>Groundbreaking Research at the Intersection of Arts and Technology</h3>
-						<p>Our team, comprised of experts in percussionist artistry, music production, and computer science, engages in groundbreaking research to push the forefront of innovation in music accessibility.</p>
+						<p>Our team, comprised of experts in percussionist artistry, music production, and computer
+							science, engages in groundbreaking research to push the forefront of innovation in music
+							accessibility.</p>
 					</section>
 					<section>
 						<span class="icon solid major fa-desktop"></span>
 						<h3>Cultural Event Accessibility Advocacy</h3>
-						<p>Collaborating with Cymaspace, we advocate for and contribute to making cultural events universally accessible to the Deaf and Hard of Hearing community through technology, education, and outreach.</p>
+						<p>Collaborating with Cymaspace, we advocate for and contribute to making cultural events
+							universally accessible to the Deaf and Hard of Hearing community through technology,
+							education, and outreach.</p>
 					</section>
 					<section>
 						<span class="icon solid major fa-link"></span>
 						<h3>Empowering Inclusivity Through Universal Design</h3>
-						<p>We champion Universal Design principles to break down barriers, ensuring that our projects are inclusive for individuals with diverse abilities, from the Deaf to the Hard of Hearing and beyond.</p>
+						<p>We champion Universal Design principles to break down barriers, ensuring that our projects
+							are inclusive for individuals with diverse abilities, from the Deaf to the Hard of Hearing
+							and beyond.</p>
 					</section>
 					<section>
 						<span class="icon major fa-gem"></span>
 						<h3>Interactive Installations and Immersive Experiences</h3>
-						<p>From visually compelling interactive systems to immersive experiences, we explore the intersection of body movement, expression, and technology, creating a sensory-rich environment for all.</p>
+						<p>From visually compelling interactive systems to immersive experiences, we explore the
+							intersection of body movement, expression, and technology, creating a sensory-rich
+							environment for all.</p>
 					</section>
 				</div>
 				<!--
@@ -199,12 +307,13 @@
 		</section>
 
 		<!-- Three -->
-		<section id="three" class="wrapper style1 fade-up">
+		<section id="four" class="wrapper style1 fade-up">
 			<div class="inner">
 				<h2>Get in Touch: Let's Create, Collaborate, and Converge</h2>
 				<p>
 
-					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to Confluence and be a part of the creative confluence!</p>
+					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to Confluence
+					and be a part of the creative confluence!</p>
 				<div class="split style1">
 					<section>
 						<form method="post" action="#">
@@ -245,14 +354,15 @@
 									<span>(000) 000-0000</span>
 								</li>
 							-->
-							
+
 							<li>
 								<h3>Social</h3>
 								<ul class="icons">
 									<li><a href="#" class="icon brands fa-twitter"><span
 												class="label">Twitter</span></a></li>
-									<li><a href="https://www.facebook.com/confluencerecordingco" class="icon brands fa-facebook-f"><span
-												class="label">Facebook</span></a></li>
+									<li><a href="https://www.facebook.com/confluencerecordingco"
+											class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+									</li>
 									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
 									</li>
 									<li><a href="#" class="icon brands fa-instagram"><span

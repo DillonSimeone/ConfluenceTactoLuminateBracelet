@@ -62,7 +62,7 @@
 
 # Intro
 <p>
-    Two different styles of bracelets are being built as custom muscial instruments, one with pixelblaze and another with ESP32. The purpose of those bracelets are to control nearly haptics and LED systems via sensors detecting the wearer's gestures and movements. 
+    Two different styles of bracelets are being built as custom musical instruments, one with pixelblaze and another with ESP32. The purpose of those bracelets are to control nearly haptics and LED systems via sensors detecting the wearer's gestures and movements. 
 </p>
 <h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Arduino%20Code/FrequencyReactiveTacile">ESP32 Bracelet (GestoLumina)</a></h3>
 <p>A low cost but extremely powerful approach, very beginner-friendly due to being programmed in arduino. Require more elbow grease to get up and running similar to the pixelblaze. However, the bluetooth in nearly all ESP32s makes them very easy to program as bluetooth musical instruments!</p>

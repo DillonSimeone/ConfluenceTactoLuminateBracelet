@@ -41,17 +41,6 @@
 				/* lame hack for now */
 			}
 		}
-		.logos{
-			display: flex;
-			justify-content: space-around;
-			margin-bottom: 2rem;
-		}
-
-		.logos img, .logos a{
-			width: 35%;
-			text-decoration: none;
-			border: none;
-		}
 
 		[data-js="glitch-image"] {
 			position: relative;
@@ -92,6 +81,23 @@
 			}
 		}
 
+		.logos{
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 2rem;
+		}
+
+		.logos img, .logos a{
+			width: 35%;
+			text-decoration: none;
+			border: none;
+		}
+
+		#sidebar .logos{
+			flex-direction: row !important;
+			justify-content: space-between !important;
+		}
+
 		#sidebar .inner div {
 			display: flex;
 			flex-direction: column;
@@ -127,7 +133,12 @@
 					<li><a href="#three">What we do</a></li>
 					<li><a href="#six">Get in touch</a></li>
 				</ul>
+				<div class="logos">
+					<img src="/images/logos/TransparentCymaspaceLogo.png">
+					<img src="/images/logos/OCF-bug-Horizontal-White-Type.svg">
+				</div>
 			</nav>
+			
 
 
 		</div>
@@ -161,7 +172,7 @@
 					thrives, and where sound is not just heard but felt on a profound level.
 				</p>
 				<p>
-					Confluence artists are fellows of the OCF Creative heights Award in partnership with CymaSpace
+					Confluence artists are fellows of the OCF Creative heights Award, sponsored by CymaSpace
 				</p>
 				<div class="logos">
 					<a href="https://www.cymaspace.org/">

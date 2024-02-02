@@ -24,8 +24,21 @@
 				display: none;
 			}
 
+			#sidebar .inner p {
+				display: none !important;
+			}
+
 			#sidebar .inner div {
-				display: none !important; 
+				display: flex !important;
+				justify-content: center !important;
+				align-items: center !important;
+				width: 75px;
+			}
+
+			#sidebar .inner div img {
+				width: 100% !important;
+				margin-top: 15px;
+				/* lame hack for now */
 			}
 		}
 
@@ -36,7 +49,7 @@
 		}
 
 		[data-js="glitch-image"] img {
-			position:absolute;
+			position: absolute;
 			top: 0px;
 			left: 0px;
 			width: 100px;
@@ -52,7 +65,8 @@
 			border-radius: 100px;
 		}
 
-		.spotlights section .news, .spotlights section .events {
+		.spotlights section .news,
+		.spotlights section .events {
 			background-size: 25% 25%;
 			animation: slide 30s infinite linear;
 		}
@@ -61,34 +75,32 @@
 			0% {
 				background-position: left;
 			}
+
 			100% {
-				background-position: right;
+				background-position: right bottom;
 			}
 		}
 
-		#sidebar .inner div{
+		#sidebar .inner div {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			text-align: center;
-			font-size: 0.75rem;
-			margin-bottom: 0.5rem;
+			text-align: right;
 		}
 
-		#sidebar .inner div img{
+		#sidebar .inner div img {
 			width: 35%;
-			margin: auto;
+			align-self: flex-end;
 		}
 
-		#sidebar .inner div a{
-			border:none;
+		#sidebar .inner p {
+			margin: 0;
 		}
-
 	</style>
 </head>
 
 <body class="is-preload">
-	
+
 	<!-- Sidebar -->
 	<section id="sidebar">
 		<div data-js="glitch-image">
@@ -102,22 +114,31 @@
 					<li><a href="#one">Who we are</a></li>
 					<li><a href="#two">News/Events</a></li>
 					<li><a href="#three">What we do</a></li>
-					<li><a href="#four">Get in touch</a></li>
+
+					<li>
+						<a href="#four">
+							<!-- Javascript isn't reacting well to Href links in the nav-->
+							<div>
+								<p>Confluence funded by Creative Heights</p>
+								<img src="./images/logos/OCF-bug-Horizontal-White-Type.svg">
+
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#five">
+							<div>
+								<p>Universal Music Design sponsored by</p>
+								<img src="./images/logos/TransparentCymaspaceLogo.png">
+							</div>
+						</a>
+					</li>
+					<li><a href="#six">Get in touch</a></li>
 				</ul>
+
 			</nav>
-			<div>
-				Confluence funded by Creative Heights
-				<a href=""> <!-- Javascript isn't reacting well to Href links in the nav-->
-					<img src="./images/logos/OCF-bug-Horizontal-White-Type.svg">
-				</a>
-			</div>
-			<div>
-				Universal Music Design sponsored by
-				<a href="">
-					<img src="./images/logos/Transparent Cymaspace Logo 1024x403px.png">
-				</a>
-				
-			</div>
+
+
 		</div>
 	</section>
 
@@ -172,7 +193,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section>
 				<a href="#" class="image"><img src="images/Gestolumina/Gesloumina.jpg" alt=""
 						data-position="top center" /></a>
@@ -192,7 +213,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section>
 				<a href="#" class="image"><img src="images/teamMembers/teamMembers.jpg" alt=""
 						data-position="25% 25%" /></a>
@@ -274,7 +295,7 @@
 							seamless integration between technology and the user experience, enhancing accessibility in
 							the realm of entertainment.</p>
 					</section>
-					
+
 					<section>
 						<span class="icon solid major fa-cog"></span>
 						<h3>Groundbreaking Research at the Intersection of Arts and Technology</h3>
@@ -312,13 +333,56 @@
 			</div>
 		</section>
 
-		<!-- Three -->
-		<section id="four" class="wrapper style1 fade-up">
+		<!-- four -->
+		<section id="four" class="wrapper style5 spotlights">
+
+			<section>
+				<a href="#" class="image"><img src="./images/logos/OCF-bug-Horizontal-White-Type.svg" alt=""
+						data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Creative Heights</h2>
+						<p>
+							Providing opportunities for artists and culture bearers to stretch their creative capacity, share new works and test new ideas. </p>
+						<ul class="actions">
+							<li><a href="https://oregoncf.org/grants-and-scholarships/grants/creative-heights/" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+		</section>
+
+		<!-- five -->
+		<section id="five" class="wrapper style2 spotlights">
+
+			<section>
+				<a href="#" class="image"><img src="./images/logos/TransparentCymaspaceLogo.png" alt=""
+						data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Cymaspace</h2>
+						<p>
+							CymaSpace is a leading advocate for accessibility and inclusion within performing arts,
+							cultural events, and media broadcasting for DHH people. </p>
+						<ul class="actions">
+							<li><a href="https://www.cymaspace.org/" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+		</section>
+
+
+		<!-- Six -->
+		<section id="six" class="wrapper style1 fade-up">
 			<div class="inner">
 				<h2>Get in Touch: Let's Create, Collaborate, and Converge</h2>
 				<p>
 
-					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to Confluence
+					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to
+					Confluence
 					and be a part of the creative confluence!</p>
 				<div class="split style1">
 					<section>
@@ -342,6 +406,7 @@
 							</ul>
 						</form>
 					</section>
+
 					<section>
 						<ul class="contact">
 							<li>

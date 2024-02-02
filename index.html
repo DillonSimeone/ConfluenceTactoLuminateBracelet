@@ -41,6 +41,17 @@
 				/* lame hack for now */
 			}
 		}
+		.logos{
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 2rem;
+		}
+
+		.logos img, .logos a{
+			width: 35%;
+			text-decoration: none;
+			border: none;
+		}
 
 		[data-js="glitch-image"] {
 			position: relative;
@@ -114,28 +125,8 @@
 					<li><a href="#one">Who we are</a></li>
 					<li><a href="#two">News/Events</a></li>
 					<li><a href="#three">What we do</a></li>
-
-					<li>
-						<a href="#four">
-							<!-- Javascript isn't reacting well to Href links in the nav-->
-							<div>
-								<p>Confluence funded by Creative Heights</p>
-								<img src="./images/logos/OCF-bug-Horizontal-White-Type.svg">
-
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#five">
-							<div>
-								<p>Universal Music Design sponsored by</p>
-								<img src="./images/logos/TransparentCymaspaceLogo.png">
-							</div>
-						</a>
-					</li>
 					<li><a href="#six">Get in touch</a></li>
 				</ul>
-
 			</nav>
 
 
@@ -169,6 +160,17 @@
 					Deaf Music Producer. We take pride in pushing boundaries, creating an environment where innovation
 					thrives, and where sound is not just heard but felt on a profound level.
 				</p>
+				<p>
+					Confluence artists are fellows of the OCF Creative heights Award in partnership with CymaSpace
+				</p>
+				<div class="logos">
+					<a href="https://www.cymaspace.org/">
+						<img src="/images/logos/TransparentCymaspaceLogo.png">
+					</a>
+					<a href="https://oregoncf.org/grants-and-scholarships/grants/creative-heights/">
+						<img src="/images/logos/OCF-bug-Horizontal-White-Type.svg">
+					</a>
+				</div>
 				<ul class="actions">
 					<li><a href="#one" class="button scrolly">Learn more</a></li>
 				</ul>
@@ -331,47 +333,6 @@
 				</ul>
 				-->
 			</div>
-		</section>
-
-		<!-- four -->
-		<section id="four" class="wrapper style5 spotlights">
-
-			<section>
-				<a href="#" class="image"><img src="./images/logos/OCF-bug-Horizontal-White-Type.svg" alt=""
-						data-position="center center" /></a>
-				<div class="content">
-					<div class="inner">
-						<h2>Creative Heights</h2>
-						<p>
-							Providing opportunities for artists and culture bearers to stretch their creative capacity, share new works and test new ideas. </p>
-						<ul class="actions">
-							<li><a href="https://oregoncf.org/grants-and-scholarships/grants/creative-heights/" class="button">Learn more</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
-		</section>
-
-		<!-- five -->
-		<section id="five" class="wrapper style2 spotlights">
-
-			<section>
-				<a href="#" class="image"><img src="./images/logos/TransparentCymaspaceLogo.png" alt=""
-						data-position="center center" /></a>
-				<div class="content">
-					<div class="inner">
-						<h2>Cymaspace</h2>
-						<p>
-							CymaSpace is a leading advocate for accessibility and inclusion within performing arts,
-							cultural events, and media broadcasting for DHH people. </p>
-						<ul class="actions">
-							<li><a href="https://www.cymaspace.org/" class="button">Learn more</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
-
 		</section>
 
 

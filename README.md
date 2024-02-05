@@ -39,23 +39,28 @@
     <thead>
         <th>Dillon Simeone</th>
         <th>Doga Cavdir, PhD</th>
+        <th>Duncan MacConnell, PhD</th>
     </thead>
     <tbody>
     <tr>
         <td>CymaSpace</td>
         <td>Medialogy</td>
+        <td>Avid</td>
     </tr>
     <tr>
         <td>www.cymaspace.org</td>
         <td>Aalborg University</td>
+        <td><a href="https://www.linkedin.com/in/duncan-macconnell-a4067511a/overlay/contact-info/">linkedIn</a></td>
     </tr>
     <tr>
         <td>Portland, Oregon</td>
         <td>Copnenhagen, Denmark</td>
+        <td>Montreal, Quebec, Canada</td>
     </tr>
     <tr>
         <td>dillonsimeone@gmail.com</td>
         <td>Idoga.cadvir@gmail.com</td>
+        <td>duncanmacconnell@gmail.com</td>
     </tr>
     </tbody>
 </table>

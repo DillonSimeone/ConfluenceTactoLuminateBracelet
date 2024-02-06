@@ -51,6 +51,7 @@ This sends out midi notes via bluetooth (BLE-MIDI). The sensors on the ring and 
 	<h4>Haptics</h4>
 	<blockquote>
 		<a href="https://www.amazon.com/SparkFun-Qwiic-Haptic-Driver-Built/dp/B096YHK485">SparkFun Haptic Driver</a>
+		<b> NOT IN USE, TOO WEAK TO NOTICE</b>
 		<p>Sparkfun marketed those as accurate audio to haptic hardwares... They did not mention that they're so weak that it takes effort to notice them.</p>
 		<a href="https://www.amazon.com/SparkFun-development-soldering-Breadboardable-Chain-able/dp/B07RB2LRH5">Cable hook up kit</a>
 		<p>Ordered specifically for the Sparkfun Haptics, just to see how those cables are like.</p>

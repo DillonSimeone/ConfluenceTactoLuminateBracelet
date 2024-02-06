@@ -54,8 +54,9 @@ This sends out midi notes via bluetooth (BLE-MIDI). The sensors on the ring and 
 		<b> NOT IN USE, TOO WEAK TO NOTICE</b>
 		<p>Sparkfun marketed those as accurate audio to haptic hardwares... They did not mention that they're so weak that it takes effort to notice them.</p>
 		<a href="https://www.amazon.com/SparkFun-development-soldering-Breadboardable-Chain-able/dp/B07RB2LRH5">Cable hook up kit</a>
+		<b> NOT IN USE, NO OTHER I2C QWICC SENSORS IN USE. </b>
 		<p>Ordered specifically for the Sparkfun Haptics, just to see how those cables are like.</p>
-		<a href="https://www.amazon.com/SparkFun-Qwiic-Haptic-Driver-Built/dp/B096YHK485">L298N</a>
+		<a href="https://www.amazon.com/dp/B0C5JCF5RS">L298N</a>
 		<p>Good old time-tested H-bridges. They just work, and will happily melt your haptics if you run way too much power through them. They're awesome... The best!</p>
 		<a href="https://www.amazon.com/tatoko-Vibration-Button-Type-Vibrating-Appliances/dp/B07Q1ZV4MJ/">Mini Vibration Motors </a>
 		<p>Those actually works with a range of 3v to 5v without much issues. Nice and cheap.</p>

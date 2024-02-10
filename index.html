@@ -43,32 +43,30 @@
 		}
 
 		[data-js="glitch-image"] {
-			position: relative;
-			top: -35px;
-			left: -25px
+			display: flex !important; 
+			align-items: center !important; 
+			justify-content: center !important;
 		}
 
 		[data-js="glitch-image"] img {
 			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 100px;
-			height: 100px;
+			top: 0;
+			width: 50% !important;
+  			align-self:center !important;
 		}
 
-		[data-js="glitch-image"] canvas {
+		#logoAnimation{
 			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 100px;
-			height: 100px;
-			border-radius: 100px;
+			top: -2.5%;
+			z-index: 100000;
+			opacity: 0.55;
+			pointer-events: none;
 		}
 
 		.spotlights section .news,
 		.spotlights section .events {
 			background-size: 25% 25%;
-			animation: slide 30s infinite linear;
+		
 		}
 
 		@keyframes slide {
@@ -81,19 +79,20 @@
 			}
 		}
 
-		.logos{
+		.logos {
 			display: flex;
 			justify-content: space-around;
 			margin-bottom: 2rem;
 		}
 
-		.logos img, .logos a{
+		.logos img,
+		.logos a {
 			width: 35%;
 			text-decoration: none;
 			border: none;
 		}
 
-		#sidebar .logos{
+		#sidebar .logos {
 			flex-direction: row !important;
 			justify-content: space-between !important;
 		}
@@ -119,13 +118,17 @@
 <body class="is-preload">
 
 	<!-- Sidebar -->
-	<section id="sidebar">
-		<div data-js="glitch-image">
-			<img src="./images/logo_v24.png" id="glitch">
-		</div>
-
+	<section id="sidebar" onclick="play()">
+		
 		<div class="inner">
 			<nav>
+				<div data-js="glitch-image">
+					<canvas id="logoAnimation" class="logoCanvas"></canvas>
+					<img src="./images/logo_v24.png" id="glitch">
+					<audio id="igakiPrelude">
+						<source src="./musicTracks/Igaki_Prelude _trio session.mp3">
+					</audio>
+				</div>
 				<ul>
 					<li><a href="#intro">Welcome</a></li>
 					<li><a href="#one">Who we are</a></li>
@@ -138,9 +141,6 @@
 					<img src="/images/logos/OCF-bug-Horizontal-White-Type.svg">
 				</div>
 			</nav>
-			
-
-
 		</div>
 	</section>
 
@@ -172,11 +172,13 @@
 					thrives, and where sound is not just heard but felt on a profound level.
 				</p>
 				<p>
-					Confluence artists are fellows of the Oregon Creative Foundation Creative heights Award, sponsored by CymaSpace
+					Confluence artists are fellows of the Oregon Creative Foundation Creative heights Award, sponsored
+					by CymaSpace
 				</p>
 				<ul class="actions">
 					<li><a href="#one" class="button scrolly">Learn more</a></li>
 				</ul>
+				
 			</div>
 		</section>
 
@@ -344,7 +346,6 @@
 			<div class="inner">
 				<h2>Get in Touch: Let's Create, Collaborate, and Converge</h2>
 				<p>
-
 					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to
 					Confluence
 					and be a part of the creative confluence!</p>
@@ -440,6 +441,8 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/wave.js-2.0.0/dist/bundle.js"></script>
+	<!--
 	<script>
 		//Code from: https://codepen.io/okawa-h/pen/bygrEr
 		(function (window) {
@@ -536,6 +539,7 @@
 				const imageBoard = document.querySelector('[data-js="glitch-image"]');
 				_image = imageBoard.querySelector('img');
 				_canvas = document.createElement('canvas');
+				_canvas.setAttribute("class", "logoCanvas");
 				_context = _canvas.getContext('2d');
 
 				imageBoard.appendChild(_canvas);
@@ -585,6 +589,46 @@
 			document.addEventListener('DOMContentLoaded', init);
 
 		})(window);
+	</script>
+	-->
+	<script>
+		function play() {
+        var audio = document.getElementById("igakiPrelude");
+        audio.play();
+      }
+	</script>
+	<script>
+		let audioElement = document.querySelector("#igakiPrelude");
+		let canvasElement = document.querySelector("#logoAnimation");
+	
+		let wave = new Wave(audioElement, canvasElement);
+		console.log(wave.animations)
+
+		// Intermediate example: add an animation with options
+		wave.addAnimation(new wave.animations.Turntable({
+			lineWidth: 2,
+			lineColor: "red",
+			count: 20,
+			frequencyBand: "lows",
+			glow: { color: "red", strength: 10},
+			diameter: 1
+		}));
+
+		wave.addAnimation(new wave.animations.Circles({
+			lineWidth: 1,
+			lineColor: "yellow",
+			count: 20,
+			frequencyBand: "mids"
+		}));
+
+		wave.addAnimation(new wave.animations.Circles({
+			lineWidth: 1,
+			lineColor: "purple",
+			count: 20,
+			frequencyBand: "highs"
+		}));
+
+
 	</script>
 
 </body>

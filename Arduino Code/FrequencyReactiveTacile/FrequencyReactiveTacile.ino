@@ -32,14 +32,13 @@ int finger1HallwaySensorPreviousState = LOW;
 unsigned long finger1HallwaySensorlastDebounceTime = 0;
 unsigned long debounceDelay = 50;
 
-//Mic pins
+//Mic pins NOT WORKING
 #include <AudioInI2S.h>
 #include <AudioAnalysis.h>
 #define BCK_PIN 21
 #define WS_PIN 18
 #define DATA_PIN 17 
-#define CHANNEL_SELECT_PIN 40 //L/R channel, not in use.
-AudioInI2S mic(BCK_PIN, WS_PIN, DATA_PIN, CHANNEL_SELECT_PIN); // defaults to RIGHT channel.
+AudioInI2S mic(BCK_PIN, WS_PIN, DATA_PIN); // defaults to RIGHT channel.
 #define SAMPLE_SIZE 1024 // Buffer size of read samples
 #define SAMPLE_RATE 44100 // Audio Sample Rate
 int32_t samples[SAMPLE_SIZE]; // I2S sample data is stored here
@@ -69,6 +68,14 @@ int counter = 0;
 
 void setup() {
   Wire.begin(43, 44);  //SDA, SCL
+  
+   mic.begin(SAMPLE_SIZE, SAMPLE_RATE); // Starts the I2S DMA port.
+  // audio analysis setup
+  audioInfo.setNoiseFloor(10);       // sets the noise floor
+  audioInfo.normalize(true, 0, 255); // normalize all values to range provided.
+  // audioInfo.autoLevel(AudioAnalysis::ACCELERATE_FALLOFF, 1); // uncomment this line to set auto level falloff rate
+  audioInfo.bandPeakFalloff(AudioAnalysis::EXPONENTIAL_FALLOFF, 0.05); // set the band peak fall off rate
+  audioInfo.vuPeakFalloff(AudioAnalysis::EXPONENTIAL_FALLOFF, 0.05);    // set the volume unit peak fall off rate
 
   //Battery screen fix continued. 
   pinMode(PIN_POWER_ON, OUTPUT); //triggers the LCD backlight
@@ -107,13 +114,7 @@ void setup() {
   IMU.init(calib, IMU_ADDRESS);
   tft.fillScreen(TFT_BLACK);
 
-  mic.begin(SAMPLE_SIZE, SAMPLE_RATE); // Starts the I2S DMA port.
-  // audio analysis setup
-  audioInfo.setNoiseFloor(10);       // sets the noise floor
-  audioInfo.normalize(true, 0, 255); // normalize all values to range provided.
-  // audioInfo.autoLevel(AudioAnalysis::ACCELERATE_FALLOFF, 1); // uncomment this line to set auto level falloff rate
-  audioInfo.bandPeakFalloff(AudioAnalysis::EXPONENTIAL_FALLOFF, 0.05); // set the band peak fall off rate
-  audioInfo.vuPeakFalloff(AudioAnalysis::EXPONENTIAL_FALLOFF, 0.05);    // set the volume unit peak fall off rate
+ 
 
   MIDI.begin();
 }

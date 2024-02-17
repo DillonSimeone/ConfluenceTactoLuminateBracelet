@@ -43,8 +43,8 @@
 		}
 
 		[data-js="glitch-image"] {
-			display: flex !important; 
-			align-items: center !important; 
+			display: flex !important;
+			align-items: center !important;
 			justify-content: center !important;
 		}
 
@@ -52,14 +52,14 @@
 			position: absolute;
 			top: 0;
 			width: 50% !important;
-  			align-self:center !important;
+			align-self: center !important;
 		}
 
-		#logoAnimation{
+		#logoAnimation {
 			position: absolute;
 			top: 0;
 			width: 100% !important;
-  			align-self:center !important;
+			align-self: center !important;
 			z-index: 100000;
 			opacity: 0.55;
 			pointer-events: none;
@@ -68,7 +68,7 @@
 		.spotlights section .news,
 		.spotlights section .events {
 			background-size: 25% 25%;
-		
+
 		}
 
 		@keyframes slide {
@@ -121,7 +121,7 @@
 
 	<!-- Sidebar -->
 	<section id="sidebar" onclick="play()">
-		
+
 		<div class="inner">
 			<nav>
 				<div data-js="glitch-image">
@@ -180,7 +180,7 @@
 				<ul class="actions">
 					<li><a href="#one" class="button scrolly">Learn more</a></li>
 				</ul>
-				
+
 			</div>
 		</section>
 
@@ -352,27 +352,31 @@
 					Confluence
 					and be a part of the creative confluence!</p>
 				<div class="split style1">
+
 					<section>
 						<form method="post" action="#">
 							<div class="fields">
 								<div class="field half">
 									<label for="name">Name</label>
-									<input type="text" name="name" id="name" />
+									<input type="text" name="entry.225062505" id="name" />
 								</div>
 								<div class="field half">
 									<label for="email">Email</label>
-									<input type="text" name="email" id="email" />
+									<input type="text" name="entry.912488260" id="email" />
 								</div>
 								<div class="field">
 									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="5"></textarea>
+									<textarea name="message" id="entry.507851422" id="message" rows="5"></textarea>
 								</div>
 							</div>
 							<ul class="actions">
-								<li><a href="" class="button submit">Send Message</a></li>
+								<li><button class="button submit" onsumbit="return postToGoogle();">Send
+										Message</button></li>
 							</ul>
 						</form>
 					</section>
+
+
 
 					<section>
 						<ul class="contact">
@@ -396,17 +400,21 @@
 							<li>
 								<h3>Social</h3>
 								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span
+									<!--
+										<li><a href="#" class="icon brands fa-twitter"><span
 												class="label">Twitter</span></a></li>
-									<li><a href="https://www.facebook.com/confluencerecordingco"
-											class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
-									</li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
+												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
 									</li>
 									<li><a href="#" class="icon brands fa-instagram"><span
 												class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon brands fa-linkedin-in"><span
 												class="label">LinkedIn</span></a></li>
+									-->
+									
+									<li><a href="https://www.facebook.com/confluencerecordingco"
+											class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+									</li>
+									
 								</ul>
 							</li>
 						</ul>
@@ -444,6 +452,34 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/wave.js-2.0.0/dist/bundle.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function postToGoogle() {
+			var field1 = $("#name").val();
+			var field2 = $("#email").val();
+			var field3 = $("#message").val();
+
+			$.ajax({
+				url: "{https://docs.google.com/forms/u/0/d/e/1FAIpQLSelGxnAml8m1ax8dhQkG6Zd-ynqtE8wQSORN9dUjABMZZNhPw/formResponse}",
+
+				//add your google form generated numbers below which are also the 'names' of your inputs     
+				data: {
+					"entry.225062505": field1,
+					"entry.912488260": field2,
+					"entry.507851422": field3,
+				},
+				type: "POST",
+				dataType: "xml",
+				success: function (d) {
+					$('#contact').trigger('reset');
+				},
+				error: function (x, y, z) {
+					$('#contact').trigger('reset');
+				}
+			});
+			return false;
+		}
+	</script>
 	<!--
 	<script>
 		//Code from: https://codepen.io/okawa-h/pen/bygrEr
@@ -595,14 +631,14 @@
 	-->
 	<script>
 		function play() {
-        var audio = document.getElementById("igakiPrelude");
-        audio.play();
-      }
+			var audio = document.getElementById("igakiPrelude");
+			audio.play();
+		}
 	</script>
 	<script>
 		let audioElement = document.querySelector("#igakiPrelude");
 		let canvasElement = document.querySelector("#logoAnimation");
-	
+
 		let wave = new Wave(audioElement, canvasElement);
 		console.log(wave.animations)
 
@@ -612,7 +648,10 @@
 			lineColor: "red",
 			count: 20,
 			frequencyBand: "lows",
-			glow: { color: "red", strength: 10},
+			glow: {
+				color: "red",
+				strength: 10
+			},
 			diameter: 1
 		}));
 
@@ -629,8 +668,6 @@
 			count: 20,
 			frequencyBand: "highs"
 		}));
-
-
 	</script>
 
 </body>

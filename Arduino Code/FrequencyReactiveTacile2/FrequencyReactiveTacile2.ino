@@ -21,7 +21,7 @@ TFT_eSPI tft = TFT_eSPI();  // Invoke library, pins defined in User_Setup.h
 //Bluetooth
 #include <BLEMIDI_Transport.h>
 #include <hardware/BLEMIDI_ESP32.h>
-BLEMIDI_CREATE_INSTANCE("Gestolumina Prototype 1", MIDI)
+BLEMIDI_CREATE_INSTANCE("Gestolumina Prototype 2", MIDI)
 
 //ET's index finger
 bool finger1Sent = false;
@@ -33,6 +33,12 @@ int finger1HallwaySensorPreviousState = LOW;
 unsigned long finger1HallwaySensorlastDebounceTime = 0;
 unsigned long debounceDelay = 50;
 #define finger1Haptic 1
+
+bool finger2Sent = false;
+#define finger2Led 10
+#define finger2FSR 12
+#define finger2Haptic 11
+
 
 //MPU6050 sensor
 #define IMU_ADDRESS 0x68    //Change to the address of the IMU
@@ -62,8 +68,10 @@ void setup() {
   digitalWrite(PIN_LCD_BL, HIGH);
 
   pinMode(finger1Haptic, OUTPUT);
-  pinMode(finger1Led, OUTPUT);
+  pinMode(finger2Haptic, OUTPUT);
 
+  pinMode(finger1Led, OUTPUT);
+  pinMode(finger2Led, OUTPUT);
   pinMode(finger1HallwaySensor, INPUT_PULLDOWN);
 
   tft.init();
@@ -205,6 +213,36 @@ void loop() {
   }
   tft.printf("%03d", (int)finger1FSRReading);
   tft.println("");
+  tft.setTextColor(TFT_GREEN, TFT_BLACK);
+
+  tft.print("Finger2FSR readings: ");
+  double finger2FSRReading = analogRead(finger2FSR);
+
+  if(finger2FSRReading < 25){
+    tft.setTextColor(TFT_GREEN,TFT_BLACK);
+    digitalWrite(finger2Haptic, LOW);
+    digitalWrite(finger2Led, LOW);
+    finger2Sent = false;
+  }
+  if(finger2FSRReading > 50){
+    tft.setTextColor(TFT_YELLOW, TFT_BLACK);
+    if(finger2Sent != true){
+      MIDI.sendNoteOn(39, map(finger2FSRReading, 0, 200, 0, 127), 3);
+      digitalWrite(finger2Led, HIGH);
+      digitalWrite(finger2Haptic, HIGH);
+      finger2Sent = true;
+      delay(20);
+    }
+    
+  }
+  if(finger2FSRReading > 75){
+    tft.setTextColor(TFT_RED, TFT_BLACK);
+  }
+  if(finger2FSRReading > 100){
+    tft.setTextColor(TFT_PURPLE, TFT_BLACK);
+  }
+  
+  tft.printf("%03d", (int)finger2FSRReading);
   tft.setTextColor(TFT_GREEN, TFT_BLACK);
 
   delay(50); //No special reasons for choosing 50ms. It just works. Going faster seems to work fine. I've heard that you need to have at least 2ms delay or you'll get the same readings from the MPU-6050 sensor.

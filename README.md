@@ -69,7 +69,7 @@
 <p>
     Two different styles of bracelets are being built as custom musical instruments, one with pixelblaze and another with ESP32. The purpose of those bracelets are to control nearly haptics and LED systems via sensors detecting the wearer's gestures and movements. 
 </p>
-<h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Arduino%20Code/FrequencyReactiveTacile">ESP32 Bracelet (GestoLumina)</a></h3>
+<h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Arduino%20Code">ESP32 Bracelet (GestoLumina)</a></h3>
 <p>A low cost but extremely powerful approach, very beginner-friendly due to being programmed in arduino. Require more elbow grease to get up and running similar to the pixelblaze. However, the bluetooth in nearly all ESP32s makes them very easy to program as bluetooth musical instruments!</p>
 
 <h3><a href="https://github.com/DillonSimeone/Gestolumina/tree/main/Pixelblaze%20Code">Pixelblaze Bracelet</a></h3>
@@ -198,6 +198,28 @@
         </td>
         <td align="center">
             <p>This half glove is what the entire system will be sewn to eventually!</p>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/Prototype2.jpg" style="width:50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/Prototype2Wearable.jpg" style="width:50%;">
+        </td>
+        <td align="center">
+            <img src="https://github.com/DillonSimeone/Gestolumina/blob/main/images/Gestolumina/customPCB.jpg" style="width:50%">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <p>Protoboard used! Much better. It was at this point where the team realized that a custom PCB would be much better.</p>
+        </td>
+        <td align="center">
+            <p>After some hot glue and stuff was added... Bam bam, it's wearable now! And can send midi notes with gestures!</p>
+        </td>
+        <td align="center">
+            <p>Designing the custom PCB for the first time... This is just the beginning! A lot of things to study, textbooks to read and videos to watch.</p>
         </td>
     </tr>
 </table>

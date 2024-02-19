@@ -97,23 +97,9 @@ This sends out midi notes via bluetooth (BLE-MIDI). The sensors on the ring and 
 </div>
 
 
-
-
-
-
-
-
-
 # Midi notes programmed
 	Channel 1:
-		FSR controls midi notes between 60-64 to be sent, depending on how hard you press (25g intervals)
-		Accelerometer controls the midi velocity
+		Accelerometer - Sends Midi Note 53 when moved quickly enough in any directions, velocity affected by top speed.
 	Channel 2:
-		Accelerometer controls what midi notes are sent
-		FSR controls the midi velocity
-	Channel 3:
-		Accelerometer controls what notes are sent
-		Audio level controls midi velocity
-	Channel 4:
-		Audio level controls what notes are sent.
-		Accelerometer controls midi velocityFSR output: 0-200, mapped to 0-127 for midiAccelerometer output: 0 - lightspeed, capped to 0-500 and mapped to 0-127 for midi
+		Index finger - Sends Midi Note 43, velocity affected by how hard the FSR is pressed.
+

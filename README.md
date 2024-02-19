@@ -102,6 +102,7 @@
     <li><a href="https://www.youtube.com/shorts/jl-9ZZjW-vE ">Testing MPU-6050 3</a></li>
     <li><a href="https://www.youtube.com/shorts/bEWE7uyCt_Y ">Testing haptics</a></li>
     <li><a href="https://www.youtube.com/shorts/fWRVd8oUweI">Inching toward final form... Too bulky! The pins coming out of the ESP32 board are evil!</a></li>
+    <li><a href="https://www.youtube.com/shorts/FxuSiAMirj8"> Second Prototype... It's wearable! The ESP32 is soldered onto a protoboard, and wires to that, which managed to cut down on volume.</li>
 </ul>
 
 # Pictures

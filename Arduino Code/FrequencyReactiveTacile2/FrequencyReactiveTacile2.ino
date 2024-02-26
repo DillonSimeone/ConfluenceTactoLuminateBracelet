@@ -1,8 +1,6 @@
 /*
-Last modified on: 1/23/2024
-
 Confluence - Universial Music Design
-  Gestolumina Prototype 1
+  Gestolumina Prototype 2
 
 Sends MIDI notes over bluetooth (BLE-MIDI). Sensors on the ring and the accelermeter controls the notes, pitch, speed, etc.
 
@@ -16,6 +14,14 @@ Programmer: Dillon Simeone
 #include <SPI.h>
 #include <TFT_eSPI.h> // Graphics and font library for ST7735 driver chip
 TFT_eSPI tft = TFT_eSPI();  // Invoke library, pins defined in User_Setup.h
+
+//batteryVoltage
+#include "Pangodream_18650_CL.h"
+#define ADC_PIN 4
+#define CONV_FACTOR 2
+#define READS 20
+Pangodream_18650_CL BL(ADC_PIN, CONV_FACTOR, READS);
+
 
 
 //Bluetooth
@@ -244,6 +250,11 @@ void loop() {
   
   tft.printf("%03d", (int)finger2FSRReading);
   tft.setTextColor(TFT_GREEN, TFT_BLACK);
+
+  tft.println("");
+  tft.print("(Untested) Battery level: ");
+  tft.print(BL.getBatteryChargeLevel());
+  tft.println("%");
 
   delay(50); //No special reasons for choosing 50ms. It just works. Going faster seems to work fine. I've heard that you need to have at least 2ms delay or you'll get the same readings from the MPU-6050 sensor.
 }

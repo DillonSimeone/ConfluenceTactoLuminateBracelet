@@ -157,6 +157,8 @@ void loop() {
     accelData.accelY * accelData.accelY +
     accelData.accelZ * accelData.accelZ);
   tft.println(totalAcceleration);
+  if(totalAcceleration > 300) //Slowish rotate
+    MIDI.sendControlChange(127, map(totalAcceleration, 0, 500, 0, 127), 4);
   tft.println("");
 
   tft.print("Rotation X: ");
@@ -172,9 +174,9 @@ void loop() {
     gyroData.gyroY * gyroData.gyroY +
     gyroData.gyroZ * gyroData.gyroZ);
   tft.println(totalAcceleration2);
-  if(totalAcceleration2 > 500){
-    MIDI.sendNoteOn(59, map(totalAcceleration2, 0, 500, 0, 127), 1);
-  }
+  if(totalAcceleration2 > 500) //Quick movement in any directions.
+    MIDI.sendControlChange(59, map(totalAcceleration2, 0, 500, 0, 127), 1);
+  
   tft.println("");
 
   /*
@@ -195,10 +197,14 @@ void loop() {
   tft.setTextColor(TFT_GREEN, TFT_BLACK);
 
   if(finger1FSRReading < 25){
-    finger1Sent = false;
+    if(finger1Sent){
+      MIDI.sendNoteOff(43, map(finger1FSRReading, 0, 200, 0, 127), 2); 
+      finger1Sent = false;
+    }
     tft.setTextColor(TFT_GREEN,TFT_BLACK);
     digitalWrite(finger1Haptic, LOW);
     digitalWrite(finger1Led, LOW);  
+    
   }
   if(finger1FSRReading > 50){
     
@@ -228,7 +234,10 @@ void loop() {
     tft.setTextColor(TFT_GREEN,TFT_BLACK);
     digitalWrite(finger2Haptic, LOW);
     digitalWrite(finger2Led, LOW);
-    finger2Sent = false;
+    if(finger2Sent){
+      finger2Sent = false;
+      MIDI.sendNoteOff(39, map(finger2FSRReading, 0, 200, 0, 127), 3);
+    }
   }
   if(finger2FSRReading > 50){
     tft.setTextColor(TFT_YELLOW, TFT_BLACK);
@@ -255,6 +264,9 @@ void loop() {
   tft.print("(Untested) Battery level: ");
   tft.print(BL.getBatteryChargeLevel());
   tft.println("%");
+  
+  //tft.print("Button: ");
+  //tft.println(digitalRead(14));
 
   delay(50); //No special reasons for choosing 50ms. It just works. Going faster seems to work fine. I've heard that you need to have at least 2ms delay or you'll get the same readings from the MPU-6050 sensor.
 }

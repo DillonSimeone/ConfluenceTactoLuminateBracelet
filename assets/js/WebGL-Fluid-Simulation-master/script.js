@@ -23,6 +23,7 @@ SOFTWARE.
 */
 
 'use strict';
+//Dillon commented out since the HTML5 on the website don't have any promo divs. 
 
 // Mobile promo section
 /*
@@ -52,6 +53,112 @@ googleLink.addEventListener('click', e => {
     window.open('https://play.google.com/store/apps/details?id=games.paveldogreat.fluidsimfree');
 });
 */
+
+/************** Audio reactive section - Dillon Added ******************/ 
+
+//Testing
+addEventListener("keydown", (event) => {
+    if (event.keyCode === 81) {
+        multipleSplats(parseInt(Math.random() * 20) + 5);
+    }
+})
+
+/* Reverse engineering...
+function multipleSplats (amount) {
+    for (let i = 0; i < amount; i++) {
+        const color = generateColor();
+        color.r *= 10.0;
+        color.g *= 10.0;
+        color.b *= 10.0;
+        const x = Math.random();
+        const y = Math.random();
+        const dx = 1000 * (Math.random() - 0.5);
+        const dy = 1000 * (Math.random() - 0.5);
+        splat(x, y, dx, dy, color);
+    }
+}
+
+function splat (x, y, dx, dy, color) {
+    splatProgram.bind();
+    gl.uniform1i(splatProgram.uniforms.uTarget, velocity.read.attach(0));
+    gl.uniform1f(splatProgram.uniforms.aspectRatio, canvas.width / canvas.height);
+    gl.uniform2f(splatProgram.uniforms.point, x, y);
+    gl.uniform3f(splatProgram.uniforms.color, dx, dy, 0.0);
+    gl.uniform1f(splatProgram.uniforms.radius, correctRadius(config.SPLAT_RADIUS / 100.0));
+    blit(velocity.write);
+    velocity.swap();
+
+    gl.uniform1i(splatProgram.uniforms.uTarget, dye.read.attach(0));
+    gl.uniform3f(splatProgram.uniforms.color, color.r, color.g, color.b);
+    blit(dye.write);
+    dye.swap();
+}
+*/
+
+let audioElement
+let analyser
+let firstPlay = true
+const FREQUENCY_BIN_COUNT = 128
+const dataArray = new Uint8Array(FREQUENCY_BIN_COUNT)
+
+const setupAudioCtx = () => {
+    // Create audio context
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Initialize analyser
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 2 * FREQUENCY_BIN_COUNT;
+    // Analyser's frequencyBinCount is always half of the fftSize (https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/frequencyBinCount)
+    const source = audioCtx.createMediaElementSource(audioElement);
+    // Connect source -> analyser -> destination
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+}
+
+const throwSplats = () => {
+    analyser.getByteFrequencyData(dataArray);
+    for (let i = 0; i < FREQUENCY_BIN_COUNT; i++) {
+        console.log(dataArray[i])
+        //256 is the max in the frequency array
+        if(dataArray[i] > 254)
+            multipleSplats(1)
+        /*
+            TODO: 
+            Figure out what exactly the frequency bin counts are
+            10 = ??? hz, etc...
+
+            Color-match to the frequency
+            low frequency -> red, high frequency -> purple
+
+            Splat amounts determined by volume
+            low volume - no splats, medium volume - some splats, high volume = SPLATS
+        */
+    }
+}
+
+const setupOnPlay = () => {
+    if (firstPlay) {
+        setupAudioCtx()
+        setInterval(throwSplats, 50)
+        firstPlay = false
+    }
+}
+
+window.onload = () =>{
+    audioElement = document.querySelector('audio')
+    audioElement.onplay = setupOnPlay
+}
+
+document.addEventListener('click', function() {
+    audioElement.play()
+  })
+  
+  document.addEventListener('keydown', function() {
+    audioElement.play()
+  })
+  
+  document.addEventListener('touchstart', function() {
+    audioElement.play()
+  })
 
 // Simulation section
 
@@ -115,7 +222,7 @@ if (!ext.supportLinearFiltering) {
     config.SUNRAYS = false;
 }
 
-//startGUI();
+//startGUI(); //Commented out by Dillon
 
 function getWebGLContext (canvas) {
     const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
@@ -154,7 +261,8 @@ function getWebGLContext (canvas) {
         formatRG = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
         formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
     }
-
+    
+    //Commented out since without the promo divs, this breaks the script.
     //ga('send', 'event', isWebGL2 ? 'webgl2' : 'webgl', formatRGBA == null ? 'not supported' : 'supported');
 
     return {
@@ -1171,12 +1279,6 @@ function updateKeywords () {
 updateKeywords();
 initFramebuffers();
 multipleSplats(parseInt(Math.random() * 20) + 5);
-
-addEventListener("keydown", (event) => {
-    if (event.keyCode === 81) {
-        multipleSplats(parseInt(Math.random() * 20) + 5);
-    }
-});
 
 let lastUpdateTime = Date.now();
 let colorUpdateTimer = 0.0;

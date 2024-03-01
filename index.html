@@ -172,6 +172,10 @@
 		.contact {
 			padding: 20px !important;
 		}
+
+		audio{
+			width: 100%;
+		}
 	</style>
 </head>
 
@@ -179,20 +183,17 @@
 	<div id="welcomeScreen" class="fade">
 		<h1>Welcome!</h1>
 		
-		<audio id="igakiPrelude">
-			<source src="./musicTracks/Igaki_Prelude _trio session.mp3" autoplay>
-		</audio>
+		
 	</div>
 
 	<!-- Sidebar -->
 	<section id="sidebar" onclick="play()">
 		<canvas></canvas>
 		<div class="inner">
+
 			<nav>
 				<div id="websiteLogo">
-					
 					<img src="./images/logo_v24.png" id="glitch">
-					
 				</div>
 				<ul>
 					<li><a href="#intro">Welcome</a></li>
@@ -204,14 +205,20 @@
 				<div class="logos">
 					<img src="/images/logos/TransparentCymaspaceLogo.png">
 					<img src="/images/logos/OCF-bug-Horizontal-White-Type.svg">
+					
 				</div>
+				<h5 style="text-align: center;">Igaki Prelude - by DJ Deafwish</h5>
+				<audio id="igakiPrelude" controls>
+					<source src="./musicTracks/Igaki_Prelude _trio session.mp3" autoplay>
+				</audio>
 			</nav>
 		</div>
+		
 	</section>
+	
 
 	<!-- Wrapper -->
 	<div id="wrapper">
-
 		<!-- Intro -->
 		<section id="intro" class="wrapper style1 fullscreen fade-up">
 			<div class="inner">
@@ -508,14 +515,14 @@
 			<ul class="menu">
 				<li>&copy; Confluence. All rights reserved.</li>
 				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				<li>
+<!-- 				<li>
 					<div>
 						<h3 style="text-align: center;">Igaki Prelude, by DJ Deafwish</h3>
 						<audio controls>
 							<source src="./musicTracks/Igaki_Prelude _trio session.mp3">
 						</audio>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</footer>

@@ -20,7 +20,7 @@
 			Note to self, make better mobile/table supports for this.
 		*/
 
-		body{
+		body {
 			overflow-x: hidden;
 		}
 
@@ -47,16 +47,22 @@
 			}
 		}
 
-	
-		#websiteLogo img {
-			position: fixed;
-			top: 0;
-			width: 50% !important;
+		nav {
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		#websiteLogo {
+			position: relative;
+			top: -5vh;
+			width: auto !important;
+			height: 10vh;
 			align-self: center !important;
 			transition: 1s all;
 		}
 
-		#welcomeScreen{
+		#welcomeScreen {
 			position: fixed;
 			pointer-events: none;
 			display: flex;
@@ -70,11 +76,11 @@
 			transition: all 1s;
 		}
 
-		#welcomeScreen h1{
+		#welcomeScreen h1 {
 			color: black;
 		}
 
-		.fade{
+		.fade {
 			opacity: 0;
 		}
 
@@ -107,11 +113,11 @@
 			border: none;
 		}
 
-		#sidebar{
+		#sidebar {
 			overflow: hidden;
 		}
 
-		#sidebar canvas{
+		#sidebar canvas {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -173,7 +179,7 @@
 			padding: 20px !important;
 		}
 
-		audio{
+		audio {
 			width: 100%;
 		}
 	</style>
@@ -182,8 +188,8 @@
 <body class="is-preload">
 	<div id="welcomeScreen" class="fade">
 		<h1>Welcome!</h1>
-		
-		
+
+
 	</div>
 
 	<!-- Sidebar -->
@@ -192,9 +198,7 @@
 		<div class="inner">
 
 			<nav>
-				<div id="websiteLogo">
-					<img src="./images/logo_v24.png" id="glitch">
-				</div>
+				<img src="./images/logo_v24.png" id="websiteLogo">
 				<ul>
 					<li><a href="#intro">Welcome</a></li>
 					<li><a href="#one">Who we are</a></li>
@@ -205,7 +209,7 @@
 				<div class="logos">
 					<img src="/images/logos/TransparentCymaspaceLogo.png">
 					<img src="/images/logos/OCF-bug-Horizontal-White-Type.svg">
-					
+
 				</div>
 				<h5 style="text-align: center;">Igaki Prelude - by DJ Deafwish</h5>
 				<audio id="igakiPrelude" controls>
@@ -213,9 +217,9 @@
 				</audio>
 			</nav>
 		</div>
-		
+
 	</section>
-	
+
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -515,7 +519,7 @@
 			<ul class="menu">
 				<li>&copy; Confluence. All rights reserved.</li>
 				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-<!-- 				<li>
+				<!-- 				<li>
 					<div>
 						<h3 style="text-align: center;">Igaki Prelude, by DJ Deafwish</h3>
 						<audio controls>

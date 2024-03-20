@@ -2,7 +2,7 @@
     publish = "."
 
 [[redirects]]
-  from = "https://universalmusicdesign.org/*"
-  to = "https://www.confluencerecording.org/universalmusicdesign/"
+  from = "https://universalmusicdesign.org*"
+  to = "https://www.confluencerecording.org/universalmusicdesign"
   status = 302
   force = true

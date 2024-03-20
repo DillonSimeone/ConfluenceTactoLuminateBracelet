@@ -1,0 +1,489 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Confluence</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<link rel="icon" type="image/x-icon" href="/images/favicon_io/favicon-32x32.png">
+	<script type="text/javascript" src="./assets/js/WebGL-Fluid-Simulation-master/dat.gui.min.js"></script>
+	<style>
+		/*
+			Note to self, make better mobile/table supports for this.
+		*/
+
+		body {
+			overflow-x: hidden;
+		}
+
+		@media screen and (max-width: 1280px) {
+			#websiteLogo {
+				display: none;
+			}
+
+			#sidebar .inner p {
+				display: none !important;
+			}
+
+			#sidebar .inner div {
+				display: flex !important;
+				justify-content: center !important;
+				align-items: center !important;
+				width: 75px;
+			}
+
+			#sidebar .inner div img {
+				width: 100% !important;
+				margin-top: 15px;
+				/* lame hack for now */
+			}
+		}
+
+		nav {
+			display: flex;
+			flex-direction: column;
+		}
+
+
+		#websiteLogo {
+			position: relative;
+			top: -5vh;
+			width: auto !important;
+			height: 10vh;
+			align-self: center !important;
+			transition: 1s all;
+		}
+
+		#welcomeScreen {
+			position: fixed;
+			pointer-events: none;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 99999;
+			transition: all 1s;
+		}
+
+		#welcomeScreen h1 {
+			color: black;
+		}
+
+		.fade {
+			opacity: 0;
+		}
+
+		.spotlights section .news,
+		.spotlights section .events {
+			background-size: 25% 25%;
+
+		}
+
+		@keyframes slide {
+			0% {
+				background-position: left;
+			}
+
+			100% {
+				background-position: right bottom;
+			}
+		}
+
+		.logos {
+			display: flex;
+			justify-content: space-around;
+			margin-bottom: 2rem;
+		}
+
+		.logos img,
+		.logos a {
+			width: 35%;
+			text-decoration: none;
+			border: none;
+		}
+
+		#sidebar {
+			overflow: hidden;
+		}
+
+		#sidebar canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0.15;
+		}
+
+		#sidebar .logos {
+			flex-direction: row !important;
+			justify-content: space-between !important;
+		}
+
+		#sidebar .inner div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: right;
+		}
+
+		#sidebar .inner div img {
+			width: 35%;
+			align-self: flex-end;
+		}
+
+		#sidebar .inner p {
+			margin: 0;
+		}
+
+		.fadeOut {
+			animation: fadeOutAnim 1s linear;
+		}
+
+		.fadeIn {
+			animation: fadeInAnim 1s linear;
+		}
+
+		@keyframes fadeOutAnim {
+			0% {
+				opacity: 100%;
+			}
+
+			100% {
+				opacity: 0%;
+			}
+		}
+
+		@keyframes fadeInAnim {
+			0% {
+				opacity: 0%;
+			}
+
+			100% {
+				opacity: 100%;
+			}
+		}
+
+		.contact {
+			padding: 20px !important;
+		}
+
+		audio {
+			width: 100%;
+		}
+
+		#workshopIntro{
+			background-image: url(./images/eventsNews/CentralStateofMind.jpg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: right;
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+	<div id="welcomeScreen" class="fade">
+		<h1>Welcome!</h1>
+
+
+	</div>
+
+	<!-- Sidebar -->
+	<section id="sidebar" onclick="play()">
+		<canvas></canvas>
+		<div class="inner">
+
+			<nav>
+				<img src="./images/logo_v24.png" id="websiteLogo">
+				<ul>
+					<li><a href="#intro">Welcome</a></li>
+					<li><a href="#one">Who we are</a></li>
+					<li><a href="#two">News/Events</a></li>
+					<li><a href="#three">What we do</a></li>
+					<li><a href="#six">Get in touch</a></li>
+				</ul>
+				<div class="logos">
+					<img src="/images/logos/TransparentCymaspaceLogo.png">
+					<img src="/images/logos/OCF-bug-Horizontal-White-Type.svg">
+
+				</div>
+				<h5 style="text-align: center;">Igaki Prelude - by DJ Deafwish</h5>
+				<audio id="igakiPrelude" controls>
+					<source src="./musicTracks/Igaki_Prelude _trio session.mp3" autoplay>
+				</audio>
+			</nav>
+		</div>
+
+	</section>
+
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Intro -->
+		<section id="workshopIntro" class="wrapper style1 fullscreen fade-up ">
+			<div class="inner">
+				<h1>Workshop: Building Accessible Music Technology</h1>
+				<!--
+				<p>
+					Welcome to Confluence Recording Company, where the river of creativity meets the confluence of
+					technology and inclusivity. Founded by Nate Hergert, a Deaf DJ and music producer, alongside Shawn
+					Trail, PhD, a percussionist, music producer, and computer scientist, Confluence is not just a
+					recording studio; it's a groundbreaking hub for state-of-the-art recording and production services
+					and visionary audio/multi-media research and development.
+				</p>
+				-->
+				<p>
+					Join us for an engaging workshop focused on creating accessible music systems using cutting-edge
+					technology. Led by industry experts Shawn Trails, PhD, Nate Hergert, and Dillon Simeone, this
+					session will explore the fundamentals of sound-reactive LEDs, haptics, and more. Discover the
+					transformative impact of increased accessibility on both deaf and hearing communities, and gain
+					practical insights into building your own accessible music systems. Don't miss out on this
+					opportunity to be part of the revolution in music technology!
+				</p>
+				<p>
+					In a pioneering move, Confluence stands as one of the world's first recording studios founded by a
+					Deaf Music Producer. We take pride in pushing boundaries, creating an environment where innovation
+					thrives, and where sound is not just heard but felt on a profound level.
+				</p>
+				<p>
+					Confluence artists are fellows of the Oregon Creative Foundation Creative heights Award, sponsored
+					by CymaSpace
+				</p>
+				<ul class="actions">
+					<li><a href="#one" class="button scrolly">Learn more</a></li>
+				</ul>
+
+			</div>
+		</section>
+
+		<!-- One -->
+		<section id="one" class="wrapper style2 spotlights">
+
+			<section>
+				<a href="#" class="image"><img src="./images/teamMembers/FOUNDERS.jpeg" alt=""
+						data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Meet the Workshop Instructors</h2>
+						<p>
+							Shawn Trails, PhD (Research & Production Coordinator): With a rich academic background and a
+							passion for music production and computer science, Shawn is the driving force behind our
+							team's innovative projects.
+						</p>
+						<p>
+							Nate (Project Lead): As a Deaf DJ and accessibility advocate, Nate brings a unique
+							perspective to our endeavors, fueling our mission to make music and technology accessible to
+							all.
+						</p>
+						<p>
+							Dillon (Deaf Lead Design Engineer): A programmer, website designer, and prototyping
+							specialist, Dillon is deeply committed to engineering solutions that break down barriers and
+							enhance accessibility.
+						</p>
+						<ul class="actions">
+							<li><a href="founders.html" class="button">Learn more</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+		<!-- three -->
+		<section id="three" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>What We Do: Pioneering Accessibility in Music and Beyond</h2>
+				<p>Dive into the heart of Confluence's endeavors, where creativity and technology converge to redefine
+					the world of sound:</p>
+				<div class="features">
+					<section>
+						<span class="icon solid major fa-code"></span>
+						<h3>Innovative Music Accessibility Solutions</h3>
+						<p>Revolutionizing the way music is experienced, we develop cutting-edge solutions using
+							Universal Design and haptic vibration technology, ensuring that music is not just heard but
+							felt.</p>
+					</section>
+
+					<section>
+						<span class="icon solid major fa-lock"></span>
+						<h3>Designing Wearables for Inclusive Entertainment</h3>
+						<p>Crafting user-centric wearables and envisioning complete bodysuits, we strive to create a
+							seamless integration between technology and the user experience, enhancing accessibility in
+							the realm of entertainment.</p>
+					</section>
+
+					<section>
+						<span class="icon solid major fa-cog"></span>
+						<h3>Groundbreaking Research at the Intersection of Arts and Technology</h3>
+						<p>Our team, comprised of experts in percussionist artistry, music production, and computer
+							science, engages in groundbreaking research to push the forefront of innovation in music
+							accessibility.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-desktop"></span>
+						<h3>Cultural Event Accessibility Advocacy</h3>
+						<p>Collaborating with Cymaspace, we advocate for and contribute to making cultural events
+							universally accessible to the Deaf and Hard of Hearing community through technology,
+							education, and outreach.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-link"></span>
+						<h3>Empowering Inclusivity Through Universal Design</h3>
+						<p>We champion Universal Design principles to break down barriers, ensuring that our projects
+							are inclusive for individuals with diverse abilities, from the Deaf to the Hard of Hearing
+							and beyond.</p>
+					</section>
+					<section>
+						<span class="icon major fa-gem"></span>
+						<h3>Interactive Installations and Immersive Experiences</h3>
+						<p>From visually compelling interactive systems to immersive experiences, we explore the
+							intersection of body movement, expression, and technology, creating a sensory-rich
+							environment for all.</p>
+					</section>
+				</div>
+				<!--
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Learn more</a></li>
+				</ul>
+				-->
+			</div>
+		</section>
+
+
+		<!-- Six -->
+		<section id="six" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Get in Touch: Let's Create, Collaborate, and Converge</h2>
+				<p>
+					Ready to embark on a sonic journey or collaborate on innovative projects? Reach out to
+					Confluence
+					and be a part of the creative confluence!</p>
+				<div class="split style1">
+					<section>
+						<form
+							action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSelGxnAml8m1ax8dhQkG6Zd-ynqtE8wQSORN9dUjABMZZNhPw/formResponse"
+							method="post" target="hidden_iframe">
+							<div class="fields">
+								<div class="field half">
+									<label for="name">Name</label>
+									<input type="text" name="entry.225062505" id="name" />
+								</div>
+								<div class="field half">
+									<label for="email">Email</label>
+									<input type="text" name="entry.912488260" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="entry.507851422" id="message" rows="5"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" class="button submit" onclick="thanks()">
+								</li>
+							</ul>
+						</form>
+						<iframe name="hidden_iframe" style="display:none;"></iframe>
+					</section>
+
+					<script>
+						function thanks() {
+							let form = document.querySelector("form")
+							form.classList.add("fadeOut");
+							addEventListener("animationend", (event) => {
+								form.classList.add("fadeIn");
+								form.innerHTML = "<h2>Thank you!</h2>"
+							})
+						}
+					</script>
+
+
+
+
+					<section>
+						<ul class="contact">
+							<li>
+								<h3>Address</h3>
+								<span>261 E Historic Columbia River Hwy, <br />
+									Troutdale, OR 97060<br />
+									USA</span>
+							</li>
+							<li>
+								<h3>Email</h3>
+								<a href="mailto:confluencerecording@gmail.com">confluencerecording@gmail.com</a>
+							</li>
+							<!--
+								<li>
+									<h3>Phone</h3>
+									<span>(000) 000-0000</span>
+								</li>
+							-->
+
+							<li>
+								<h3>Social</h3>
+								<ul class="icons">
+									<!--
+										<li><a href="#" class="icon brands fa-twitter"><span
+												class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
+									</li>
+									<li><a href="#" class="icon brands fa-instagram"><span
+												class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-linkedin-in"><span
+												class="label">LinkedIn</span></a></li>
+									-->
+
+									<li><a href="https://www.facebook.com/confluencerecordingco"
+											class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+									</li>
+
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Confluence. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				<!-- 				<li>
+					<div>
+						<h3 style="text-align: center;">Igaki Prelude, by DJ Deafwish</h3>
+						<audio controls>
+							<source src="./musicTracks/Igaki_Prelude _trio session.mp3">
+						</audio>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/wave.js-2.0.0/dist/bundle.js"></script>
+	<script src="./assets/js/WebGL-Fluid-Simulation-master/script.js"></script>
+
+</body>
+
+</html>

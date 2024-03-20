@@ -24,3 +24,9 @@
   to = "https://www.confluencerecording.org/universalmusicdesign"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/universalmusicdesign/*"
+  to = "https://www.confluencerecording.org/universalmusicdesign"
+  status = 301
+  force = true

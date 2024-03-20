@@ -8,7 +8,7 @@
   force = true
 
 [[redirects]]
-  from = "www.universalmusicdesign.org"
+  from = "http://universalmusicdesign.org/"
   to = "https://www.confluencerecording.org/universalmusicdesign"
   status = 301
   force = true

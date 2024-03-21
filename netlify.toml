@@ -8,19 +8,7 @@
   force = true
 
 [[redirects]]
-  from = "https:www.//universalmusicdesign.org/"
-  to = "https://www.confluencerecording.org/universalmusicdesign"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://.universalmusicdesign.org/"
-  to = "https://www.confluencerecording.org/universalmusicdesign"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.universalmusicdesign.org/"
+  from = "http://universalmusicdesign.org/"
   to = "https://www.confluencerecording.org/universalmusicdesign"
   status = 301
   force = true

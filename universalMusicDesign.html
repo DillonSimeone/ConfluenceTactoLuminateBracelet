@@ -21,6 +21,36 @@
 			width: 50vw; /* Set the width to 75% of the viewport width */
     		aspect-ratio: 16 / 9; /* Set the aspect ratio to 16:9 */
 		}
+		
+		@media screen and (max-width: 1280px) {
+			#projects a{
+				font-size: 1rem;
+			}
+
+			#projects div{
+				width: 100%;
+			}
+
+			#projects img{
+			width: 100vw;
+			max-width: 75%;
+			}
+
+			nav ul{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#header{
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+		}
 	</style>
 </head>
 
@@ -32,8 +62,7 @@
 		<nav>
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="news.html">News</a></li>
-				<li><a href="events.html">Events</a></li>
+				<li><a href="announcements.html">announcements</a></li>
 				<li><a href="universalMusicDesign.html" class="active">Universal Music Design</a></li>
 				<li><a href="founders.html">Founders</a></li>
 				<li><a href="research.html">Research</a></li>

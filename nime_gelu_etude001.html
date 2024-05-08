@@ -101,20 +101,63 @@
 
 				<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
 				<h1>GestoLumina Details</h1>
+				<h2>Cost Breakdown</h2>
+	
+						<table>
+							<tr>
+								<th>Item</th>
+								<th>Price</th>
+							</tr>
+							<tr>
+								<td><a href="https://shop.electromage.com/products/pixelblaze-v3-standard-wifi-led-controller">Pixelblaze ESP32</a></td>
+								<td>39.00</td>
+							</tr>
+							<tr>
+								<td><a href="https://shop.electromage.com/products/pixelblaze-sensor-expansion-board">Pixelblaze Sensor Extension</a></td>
+								<td>29.00</td>
+							</tr>
+							<tr>
+								<td><a href="https://www.amazon.com/gp/product/B0B65RKBCW/">Basswood lasered into living hinges</a></td>
+								<td>0.50</td>
+							</tr>
+							<tr>
+								<td><a href="https://www.amazon.com/JIALAI-HOME-Black-Heavy-inches/dp/B09Y3695GC/">Duct tape attached to bottom of living hinges</a></td>
+								<td>0.05</td>
+							</tr>
+							<tr>
+								<td><a href="https://www.amazon.com/Smays-Micro-Cable-Black-12-Pack/dp/B01GKWE3E0/">USB cable</a></td>
+								<td>1.00</td>
+							</tr>
+							<tr>
+								<td><a href="https://www.amazon.com/gp/product/B09PBGZMNS/">WS2812B LED Strip (8 1.5 inch sections)</a></td>
+								<td>1.00</td>
+							</tr>
+							<tr>
+								<td><a href="https://www.amazon.com/gp/product/B07CZDXDG8/">Power Bank</a></td>
+								<td>17.99</td>
+							</tr>
+							<tr>
+								<td>TOTAL</td>
+								<td>88.54</td>
+							</tr>
+						</table>
+				
+				<p>
+					Here's how it works:
+				</p>
 				<p>
 					GestoLumina picks up the sound and creates a colorful
 					display that moves in sync with the rhythm of the music.
 				</p>
 				<p>
-					Here's how it works:
-				</p>
-				<p>
-					<b>Initialization:</b> The code sets up everything it needs to work properly, like defining variables and
+					<b>Initialization:</b> The code sets up everything it needs to work properly, like defining
+					variables and
 					functions.
 				</p>
 
 				<p>
-					<b>Main Loop:</b> This is the main part of the code that runs continuously. It handles the process of
+					<b>Main Loop:</b> This is the main part of the code that runs continuously. It handles the process
+					of
 					updating the display based on the sound input.
 				</p>
 
@@ -122,15 +165,17 @@
 					<b>beforeRender():</b> Before each frame is displayed, this function is called. It updates timing
 					information and processes the sound input to determine how to adjust the display.
 				</p>
-				
+
 				<p>
-					<b>Process Sound:</b> If a special sensor board is connected to the device, the code reads sound data from
+					<b>Process Sound:</b> If a special sensor board is connected to the device, the code reads sound
+					data from
 					it. Otherwise, it simulates sound data. This data represents the intensity and frequency of the
 					sound.
 				</p>
 
 				<p>
-					<b>Calculate Sensitivity:</b> Based on the sound data, the code calculates how sensitive the display should
+					<b>Calculate Sensitivity:</b> Based on the sound data, the code calculates how sensitive the display
+					should
 					be to changes in the sound. This helps create a visually appealing response to different types of
 					music.
 				</p>
@@ -140,7 +185,7 @@
 					display based on the sound input. It then renders the display, creating a colorful and dynamic
 					visual effect that moves and changes with the music.
 				</p>
-				<h2>Flow chart</h2>
+				<h2>Flow chart:</h2>
 				<pre>
 					+---------------------+
 					|  Initialization    |
@@ -184,6 +229,303 @@
 					|  Return to Main Loop |
 					+----------+----------+
 					</pre>
+
+				<h2>Code:</h2>
+					<pre>
+						<code>
+/*---------------------------------------------------/ Credits /----------------------------------------------------\\
+
+Much appreciation to Jeff Vyduna for his very extensive Music Sequencer posted here:
+https://forum.electromage.com/t/music-sequencer-choreography/1549
+
+Much appreciation to MyMathematicalMind, for extracting the BPM detector from Jeff's framework
+-MyMathematicalMind, 2023.
+
+-Dillon Simeone, 2024
+
+//---------------------------------------------------/ Credits /----------------------------------------------------*/
+
+//-----------------------------------------------/ Global Variables /-----------------------------------------------\\
+
+
+// Values that come from the Sensor Board
+export var light = -1 // If this remains at the impossible value of -1, a sensor board is not connected.
+function SB() { return light != -1 }  //Function to check if sensor board is connected: if(SB())==true if detected
+export var frequencyData = array(32)  //Get all the frequencies samples in an array
+
+//Timing variables
+export var BPM = 120
+export var globalDelta = 0
+
+//Debounce variables
+var minBeatRetrigger = .2 /* How much of a currently defined quarter note beat must pass before a detected instrument 
+                              will retrigger? E.g. use .2 to allow .25 retrigger (e.g. to catch sixteenth note drums)*/
+var debounceTimer = beatsToMs(minBeatRetrigger)
+
+//Bass variables
+var bass, maxBass, bassOn    /* Bass and beats. (bassOn==true) is what triggers the debounce calculation and ultimately 
+                                whether or not beatDetected() is called*/
+var bassSlowEMA = .001, bassFastEMA = .001 // Exponential moving averages to compare to each other
+var bassThreshold = .02      // Raise this if very soft music with no beats is still triggering the beat detector
+var maxBass = bassThreshold  // Maximum bass detected recently (while any bass above threshold was present)
+var bassVelocitiesSize = 2*pow(beatSensitivity, 2) + 11*beatSensitivity + 2 /* bassVelocitiesSize=5 seems right for 
+most. Up to 15 for infrequent bass beats (slower reaction, longer decay), down to 2 for very fast triggering on doubled 
+kicks like in drum n bass */
+var bassVelocities = array(bassVelocitiesSize) /* Circular buffer to store the last 5 first derivatives of the 
+                                                `fast exponential avg/MaxSample`, used to calculate a running average */
+var lastBassFastEMA = .5, bassVelocitiesAvg = .5
+var bassVelocitiesPointer = 0 // Pointer for circular buffer
+
+//Tempo inference variables
+// Store the last 8 intervals between beats. Longest = 50BPM on beat 1 (4800 ms = 60 / 50BPM * 1000 * 4)
+var beatIntervalSamples = 8, beatIntervalPtr = 0, beatIntervalTimer = 0
+export var beatIntervals = array(beatIntervalSamples)
+export var elapsedTime = 0, currentTime = 0, prevTime = 0
+export var averageBeatsPerMs
+export var estimatedBeatsPerMinute
+
+//UI controlled variables
+export var beatSensitivity = 0.5
+export var BPMspeedFactor = 1
+
+//---------------------------------------------/ UI Control Functions /---------------------------------------------\\
+
+export function sliderBeatSensitivity(_v) { beatSensitivity = _v }
+export function showNumberBeatSensitivity() { return beatSensitivity }
+
+export function sliderBpmSpeedFactor(_v) { BPMspeedFactor = _v}
+export function showNumberbpmSpeedFactor(){return BPMspeedFactor}
+
+//---------------------------------------------/ UI Control Functions /---------------------------------------------\\
+
+//-------------------------------------------/ Beat Detection Functions /-------------------------------------------\\
+
+function processSound(delt) {
+  processInstruments(delt)
+  inferTempo(delt)
+}
+
+// Debounce detector
+function debounce(trigger, fn, duration, elapsed) {
+  if (trigger && debounceTimer <= 0) { 
+    fn()
+    debounceTimer = duration
+  } else { 
+    debounceTimer = max(-3e4, debounceTimer - elapsed)
+  }
+}
+
+function processInstruments(delt) {
+  // Assume Sensor Board updates at 40Hz (25ms); Max BPM 180 = 333ms or 13 samples; Typical BPM 500ms, 20 samples
+  // Kickdrum fundamental 40-80Hz. https://www.bhencke.com/pixelblaze-sensor-expansion
+  bass = frequencyData[1] + frequencyData[2] + frequencyData[3]
+  maxBass = max(maxBass, bass)
+  if (maxBass > 10 * bassSlowEMA && maxBass > bassThreshold) maxBass *= .99 // AGC - Auto gain control
+  
+  bassSlowEMA = (bassSlowEMA * 999 + bass) / 1000
+  bassFastEMA = (bassFastEMA * 9 + bass) / 10
+}
+
+function inferTempo(delt) {
+  bassVelocities[bassVelocitiesPointer] = (bassFastEMA - lastBassFastEMA) / maxBass /* Normalized first derivative of 
+                                                                                        fast moving expo avg */
+  bassVelocitiesAvg += bassVelocities[bassVelocitiesPointer] / bassVelocitiesSize
+  bassVelocitiesPointer = (bassVelocitiesPointer + 1) % bassVelocitiesSize
+  bassVelocitiesAvg -= bassVelocities[bassVelocitiesPointer] / bassVelocitiesSize
+  bassOn = bassVelocitiesAvg > .51 // `bassOn` is true when bass is rising
+  
+  debounce(bassOn, beatDetectedWrapper, beatsToMs(minBeatRetrigger), delt)
+  beatIntervalTimer += delt
+  // Longest = 50BPM on beat 1 (4800 ms = 60 / 50BPM * 1000 * 4)
+  //if (beatIntervalTimer > 5000) beatIntervalTimer = 5000 // No-beat ms threshold to reset beat detection 
+  lastBassFastEMA = bassFastEMA
+  
+  
+}
+
+function beatDetectedWrapper() {
+  /*
+  if (beatIntervalTimer >= 5000) { // Clear beat intervals, it's been too long since a beat
+    beatIntervals.mutate(() => 0)
+    beatIntervalTimer = beatIntervalPtr = 0
+  }
+  */
+  beatIntervals[beatIntervalPtr] = beatIntervalTimer
+  beatIntervalTimer = 0
+  beatIntervalPtr = (beatIntervalPtr + 1) % beatIntervalSamples
+  beatDetected() // Calls a user-customized function that happens whenever a beat is detected
+}
+
+// Do this whenever a beat is detected
+function beatDetected() {
+  
+  averageBeatsPerMs = 0
+  
+  
+  for(var i = 0; i < beatIntervals.length; i++)
+      averageBeatsPerMs += beatIntervals[i] //Adds up all of the beat intervals
+  
+  averageBeatsPerMs = averageBeatsPerMs/(beatIntervals.length) //Average the intervals out
+  var averageBeatsPerMsAdjusted = averageBeatsPerMs/100 //Makes this to work within pixelblaze's limits
+     
+  estimatedBeatsPerMinute = 600/(averageBeatsPerMsAdjusted) // Normally this'd be 60000/averageBeatsPerMs and done, bpm got. Pixelblaze limits to 32k~ in either directions. 
+  speed = (estimatedBeatsPerMinute/10000) * BPMspeedFactor 
+}
+
+//-------------------------------------------/ Beat Detection Functions /-------------------------------------------\\
+
+//------------------------------------------------/ Misc Functions /------------------------------------------------\\
+
+function updateDeltaTimer() {
+  currentTime = 1000*time(1/65.536)
+  if (currentTime >= prevTime) {
+    elapsedTime += currentTime-prevTime
+  } else {
+    elapsedTime += 1 - (prevTime - currentTime)
+  }
+  prevTime = currentTime
+  globalDelta = elapsedTime
+  elapsedTime = 0
+}
+
+function beatsToMs(_beats) { return (1000 / BPM * 60 * _beats) }
+
+
+/*
+  Sound - rays
+
+  This pattern is designed to use the sensor expansion board, but falls back to
+  simulated sound data if the sensor board isn't detected.
+
+  The beginning of the strip will originate pixels with color based on the most
+  prevalent frequency in the sound, and brightness based on the magnitude. Those
+  rays of color will then travel down the strip.
+
+  Please check out the "sound - blink fade" pattern for more verbose comments
+  explaining the PI controller used below for automatic gain control. 
+*/
+
+
+// Speed that the rays travel down the strip
+
+speed = 0.05
+
+// These vars are set by the external sensor board, if one is connected. We
+// don't actually use light readings in this pattern, so if the `light` value
+// remains -1, no sensor board is connected.
+export var light = -1 
+export var maxFrequencyMagnitude
+export var maxFrequency
+export var sensitivity
+
+hues = array(pixelCount)
+vals = array(pixelCount)
+
+// A position pointer, in pixels, that turns hues[] and vals[] into a circular
+// buffer
+pos = 0
+// Stores the last brightness value to feed back into the PI gain controller 
+lastVal = 0
+
+export var pic = makePIController(.05, .35, 200, 0, 400)
+
+// Make a new PI Controller
+function makePIController(kp, ki, start, min, max) {
+  var pic = array(5)
+  pic[0] = kp
+  pic[1] = ki
+  pic[2] = start // This is the accumulated error
+  pic[3] = min
+  pic[4] = max
+  return pic
+}
+
+function calcPIController(pic, err) {
+  pic[2] = clamp(pic[2] + err, pic[3], pic[4])
+  return max(pic[0] * err + pic[1] * pic[2], 0.3)
+}
+
+export var Atest = 0
+
+export function beforeRender(globalDelta) {
+  updateDeltaTimer()
+  if(SB()) processSound(globalDelta)  //Update all sound related variables to be used by the patternsw
+  
+  // Here the PI controller is aiming for a sensitivity based on chasing recent
+  // maxFrequencyMagnitudes to be 0.5
+  sensitivity = calcPIController(pic, 0.5 - lastVal)
+  
+  // To make the rays travel along the strip, sweep a position offset pointer
+  // down the arrays of values and hues
+  pos = (pos + globalDelta * speed) % pixelCount
+  
+  if (light == -1) simulateSound()  // No sensor board attached
+  
+  // The brightness value will be determined by the magnitude of the most
+  // intense frequency. This is also our feedback to the PI controller.
+  lastVal = vals[pos] = pow(maxFrequencyMagnitude * sensitivity, 2)
+  /*
+    Expected Brightness Decay behavior:
+    1 0.9 0.8 ...
+    
+    Vals:
+      0.05~ ... 
+      
+      Unclear how exactly the values for each pixels are calculated... 0 = led pixel turned off, <1, -1> = led pixels turned on to max 
+  */
+  //lastVal = vals[pos] = abs(vals[pos])/1
+  //lastVal = vals[pos] += 0.01 //If brightness is 1, -0.01 each frame would eventually fade it out to 0, right? Not the case here.
+  //It'll likely take me a day or two to work out a new formula that combines blinkfade and soundray. Little as four hours
+  Atest = lastVal
+  
+  /*
+    The base color will be modified by time and strip position in render(), but
+    its hue begins based on the most intense frequency detected. If you played a
+    swept tone between 20 Hz and 5 KHz, it'd trace a rainbow. 
+  */
+  hues[pos] = maxFrequency / 5000
+
+  // Used to subtly advance the hue over time
+  // --- t1 = time(6.5 / 65.536)
+}
+
+export function render(index) {
+  // Reverse indices so that pixels flow to the right
+  index = pixelCount - index
+  // Shift the index circularly based on the position offset
+  i = (index + pos) % pixelCount
+  
+  h = hues[i]
+  /*
+    This rotates color by adding a component based on time and position.  
+    Comment this out to more clearly see the detected maximum frequencies.
+    Adding `index / pixelCount / 4` adds a quarter of the hue wheel across the
+    strip's entire length. Notice that since index is reversed, *adding* t1 back
+    in has the effect of *slowing* the hue progression.
+  */
+  // --- h += index / pixelCount / 4 + t1
+
+  v = vals[i]
+  v = v * v  // Gamma correction
+  
+
+  hsv(h, 1, v)
+}
+
+/* 
+  Simulate the sensor board variables used in this pattern, if no senor board is
+  detected. The values and waveforms were chosen to approximate the look when
+  sound is sensed. 
+*/
+function simulateSound() { 
+  t1 = time(10 / 65.536) 
+  maxFrequency = 2000 * (1 + wave(t1)) * (0.7 + random(0.3)) 
+  maxFrequencyMagnitude = log(1.05 + wave(17 * t1) * wave( 19 * t1) * wave(23 * t1)) 
+  maxFrequencyMagnitude *= 0.7 + random(0.3)
+}
+</code>
+						</pre>
+				
 			</div>
 		</section>
 

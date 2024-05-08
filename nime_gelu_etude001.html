@@ -13,60 +13,60 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			iframe {
-				display: block;
-				margin: auto;
-				display: block;
-				width: 100%;
-				/* Set the width to 75% of the viewport width */
-				aspect-ratio: 16 / 9;
-				/* Set the aspect ratio to 16:9 */
+	<style>
+		iframe {
+			display: block;
+			margin: auto;
+			display: block;
+			width: 100%;
+			/* Set the width to 75% of the viewport width */
+			aspect-ratio: 16 / 9;
+			/* Set the aspect ratio to 16:9 */
+		}
+
+		.gallery {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 10%;
+			margin-bottom: 10%;
+		}
+
+		.gallery img {
+			width: 30%;
+		}
+
+		@media screen and (max-width: 1280px) {
+			#projects a {
+				font-size: 1rem;
 			}
-	
-			.gallery {
+
+			#projects div {
 				width: 100%;
+			}
+
+			#projects img {
+				width: 100vw;
+				max-width: 75%;
+			}
+
+			nav ul {
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
-				margin-top: 10%;
-				margin-bottom: 10%;
+				align-items: center;
 			}
-	
-			.gallery img {
-				width: 30%;
+
+			#header {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
 			}
-	
-			@media screen and (max-width: 1280px) {
-				#projects a {
-					font-size: 1rem;
-				}
-	
-				#projects div {
-					width: 100%;
-				}
-	
-				#projects img {
-					width: 100vw;
-					max-width: 75%;
-				}
-	
-				nav ul {
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: center;
-					align-items: center;
-				}
-	
-				#header {
-					display: flex;
-					flex-direction: column;
-					flex-wrap: wrap;
-					justify-content: center;
-					align-items: center;
-				}
-			}
-		</style>
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -100,16 +100,78 @@
 				</iframe>
 
 				<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-				<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
-					venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor
-					sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu
-					massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris.
-					Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis,
-					hendrerit tristique.</p>
-				<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet
-					dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque
-					leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum
-					convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+				<h1>GestoLumina Details</h1>
+				<p>
+					GestoLumina picks up the sound and creates a colorful
+					display that moves in sync with the rhythm of the music.
+
+					Here's how it works:
+
+					Initialization: The code sets up everything it needs to work properly, like defining variables and
+					functions.
+
+					Main Loop: This is the main part of the code that runs continuously. It handles the process of
+					updating the display based on the sound input.
+
+					beforeRender(): Before each frame is displayed, this function is called. It updates timing
+					information and processes the sound input to determine how to adjust the display.
+
+					Process Sound: If a special sensor board is connected to the device, the code reads sound data from
+					it. Otherwise, it simulates sound data. This data represents the intensity and frequency of the
+					sound.
+
+					Calculate Sensitivity: Based on the sound data, the code calculates how sensitive the display should
+					be to changes in the sound. This helps create a visually appealing response to different types of
+					music.
+
+					Render Each Pixel: Finally, the code determines the color and brightness of each pixel on the
+					display based on the sound input. It then renders the display, creating a colorful and dynamic
+					visual effect that moves and changes with the music.
+				</p>
+				<h2>Flow chart</h2>
+				<pre>
+					+---------------------+
+					|  Initialization    |
+					|    and Setup       |
+					|  + Helper Funcs    |
+					+----------+----------+
+							|
+							v
+					+----------+----------+
+					|  Main Loop           |
+					+----------+----------+
+							|
+							v
+					+----------+----------+
+					|   beforeRender()     |
+					|     (Each Frame)     |
+					+----------+----------+
+							|
+							v
+					+----------+----------+
+					|    Process Sound     |
+					|    (If Sensor Board) |
+					+----------+----------+
+							|
+							v
+					+----------+----------+
+					|    Calculate         |
+					|   Sensitivity        |
+					|    Caluculate        |
+					|   Beats Per Minute   |
+					+----------+----------+
+							|
+							v
+					+----------+----------+
+					|    Render Each       |
+					|      Pixel           |
+					+----------+----------+
+							|
+							v
+					+----------+----------+
+					|  Return to Main Loop |
+					+----------+----------+
+					</pre>
 			</div>
 		</section>
 

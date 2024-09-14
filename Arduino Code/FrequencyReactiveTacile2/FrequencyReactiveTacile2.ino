@@ -27,7 +27,7 @@ Pangodream_18650_CL BL(ADC_PIN, CONV_FACTOR, READS);
 //Bluetooth
 #include <BLEMIDI_Transport.h>
 #include <hardware/BLEMIDI_ESP32.h>
-BLEMIDI_CREATE_INSTANCE("Gestolumina Prototype 2", MIDI)
+BLEMIDI_CREATE_INSTANCE("Gestolumina Prototype 1", MIDI)
 
 //ET's index finger
 bool finger1Sent = false;
